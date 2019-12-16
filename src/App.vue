@@ -18,4 +18,9 @@
   *
     margin 0
     padding 0
+  li
+    list-style none
+  a
+    color #222
+    text-decoration none
 </style>
