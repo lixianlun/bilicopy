@@ -11,17 +11,18 @@
           <li><a href="">赛事</a></li>
           <li><a href="">BML</a></li>
         </ul>
-        <div>
-          <input type="text" placeholder="我们B站就算倒闭也不会收B友一分钱!" class="In_search">
-          <span></span>
-        </div>
+        <search></search>
       </div>
   </div>
 </template>
 
 <script>
+  import search from "./search.vue"
   export default{
     name:'Topcontainer',
+    components: {
+      search
+    },
     data(){
       return {
       }
@@ -58,14 +59,4 @@
       a
         color white
         font-size 14px
-    .In_search
-      width 22vw
-      padding 10px 0 10px 20px
-      margin-top 5px
-      border 0px solid white
-      outline none
-      border-radius 3px 0 0 3px
-    input::-webkit-input-placeholder
-      color #BBBBBB
-      font-size 13px
 </style>
