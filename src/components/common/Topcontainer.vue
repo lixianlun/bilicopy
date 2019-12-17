@@ -12,16 +12,19 @@
           <li><a href="">BML</a></li>
         </ul>
         <search></search>
+        <login></login>
       </div>
   </div>
 </template>
 
 <script>
   import search from "./search.vue"
+  import login from "./login.vue"
   export default{
     name:'Topcontainer',
     components: {
-      search
+      search,
+      login
     },
     data(){
       return {

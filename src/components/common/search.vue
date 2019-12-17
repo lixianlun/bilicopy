@@ -11,17 +11,17 @@
 <style lang="stylus">
   .search_size
     position absolute
-    right 20%
+    right 25%
   .In_search
     width 330px
-    padding 10px 38px 10px 20px
-    margin-top 5px
+    padding 8px 38px 8px 20px
+    margin-top 8px
     border 0px solid white
     outline none
     border-radius 3px
     position absolute
   input::-webkit-input-placeholder
-    color #BBBBBB
+    color #B3B3B3
     font-size 13px
   .search_button
     width 38px
