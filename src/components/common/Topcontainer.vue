@@ -20,6 +20,7 @@
 <script>
   import search from "./search.vue"
   import login from "./login.vue"
+
   export default{
     name:'Topcontainer',
     components: {
@@ -28,6 +29,7 @@
     },
     data(){
       return {
+        icon:false
       }
     }
   }
