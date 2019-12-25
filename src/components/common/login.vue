@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div class="right">
     <ul class="box">
       <span class="akari"></span>
       <li><a href="">登录</a></li>
       <li><a href="">注册</a></li>
-      <div class="contribute" @mouseenter="icon=!icon" @mouseleave="icon=!icon">投稿</div>
     </ul>
-    <material v-show="icon"></material>
+    <div class="contribute" @mouseover="icon=!icon" @mouseout="icon=!icon">
+      投稿
+      <material v-show="icon"></material>
+    </div>
+
   </div>
 </template>
 
@@ -25,8 +28,10 @@
 </script>
 
 <style lang="stylus">
-  .box
+  .right
     float right
+  .box
+    float left
     li
       float left
       margin-top 18px
@@ -45,7 +50,7 @@
     margin-right 8px
     display inline-block
   .contribute
-    float right
+    float left
     padding 12px 35px
     margin-top 8px
     margin-right 21px

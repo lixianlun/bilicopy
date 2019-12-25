@@ -17,7 +17,7 @@
     position absolute
     z-index 1
     right 10px
-    top 58px
+    top 55px
     background white
     border-radius 5px
     li

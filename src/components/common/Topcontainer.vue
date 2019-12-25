@@ -15,6 +15,7 @@
         <login></login>
       </div>
   </div>
+
 </template>
 
 <script>
@@ -29,7 +30,6 @@
     },
     data(){
       return {
-        icon:false
       }
     }
   }
