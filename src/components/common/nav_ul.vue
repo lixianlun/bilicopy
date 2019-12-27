@@ -2,9 +2,11 @@
   <div class="boxnav">
     <ul class="hi_ul">
       <navli v-for="(i,index) in classify" :item="i" :key="index" ></navli>
-      <br />
       <navli v-for="(i,index) in classifd" :item="i" :key="index" ></navli>
     </ul>
+    <div class="movie">
+      <img src="../../assets/84f323e3a77a6eafee656f832847603751f3857d.gif" alt="">
+    </div>
   </div>
 </template>
 
@@ -77,12 +79,15 @@
 
 <style lang="stylus">
   .boxnav
-    width 100%
-    position absolute
+    margin-top 30px
+    text-align center
   .hi_ul
-    width 56%
-    position relative
+    width 805px
     overflow hidden
+    display inline-block
     border-right 1px solid #e7e7e7
-    margin 20px auto 0
+  .movie
+    position relative
+    bottom 8px
+    display inline-block
 </style>
