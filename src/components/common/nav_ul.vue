@@ -5,7 +5,7 @@
       <navli v-for="(i,index) in classifd" :item="i" :key="index" ></navli>
     </ul>
     <div class="movie">
-      <img src="../../assets/84f323e3a77a6eafee656f832847603751f3857d.gif" alt="">
+      123
     </div>
   </div>
 </template>
@@ -79,15 +79,18 @@
 
 <style lang="stylus">
   .boxnav
-    margin-top 30px
+    height 64px
+    margin-top 20px
     text-align center
   .hi_ul
     width 805px
     overflow hidden
     display inline-block
+    margin-right 40px
     border-right 1px solid #e7e7e7
   .movie
-    position relative
-    bottom 8px
+    height 64px
     display inline-block
+    margin 15px 0
+    vertical-align middle
 </style>
