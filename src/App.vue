@@ -2,17 +2,20 @@
   <div id="app">
     <Topcontainer></Topcontainer>
     <navul></navul>
+    <banner></banner>
   </div>
 </template>
 
 <script>
   import Topcontainer from './components/common/Topcontainer.vue'
   import navul from "./components/common/nav_ul.vue"
+  import banner from "./components/banner/banner.vue"  
   export default {
     name: 'App',
     components: {
       Topcontainer,
-      navul
+      navul,
+      banner
     }
   }
 </script>

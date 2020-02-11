@@ -5,7 +5,6 @@
       <navli v-for="(i,index) in classifd" :item="i" :key="index" ></navli>
     </ul>
     <div class="movie">
-      123
     </div>
   </div>
 </template>
