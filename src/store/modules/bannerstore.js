@@ -10,11 +10,16 @@ const getters={
 }
 
 const actions= {
-  bannerdata({commit,state,rootstate}){
+  bannerdata({commit,state,rootState}){
+    rootState.requesting=true
     commit(TYPE.BANNER_REQUEST)
     bannerApi.list().then((response)=>{
+      rootState.requesting=false
       commit(TYPE.BANNER_SUCCESS,response)
       console.log(response)
+    },(error)=>{
+      commit(TYPE.BANNER_ERROR)
+      console.log(rootState.requesting)
     })
   }
 }
