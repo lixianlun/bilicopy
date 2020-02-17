@@ -1,11 +1,14 @@
 <template>
-  <li class="bannerli">
-    <img src="../../assets/e9e6bb09e06935a4f2308be59e24ed0540604fed.jpg" alt="">
+  <li class="bannerli" v-if="banner">
+      <img :src="banner.pic">
   </li>
 </template>
 
 <script>
   export default{
+    props:{
+      banner:Object
+    }
   }
 </script>
 

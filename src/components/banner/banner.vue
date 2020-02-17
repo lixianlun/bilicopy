@@ -3,9 +3,10 @@
     <div>
       <div class="box_overflow">
         <ul class="box_ul" ref="banner">
-          <bannerli></bannerli>
+          <bannerli v-for="(item,index) in bannerdata" :banner='item' :key='index'></bannerli>
         </ul>
       </div>
+      <!-- {{bannerdata[0].pic}} -->
     </div>
   </div>
 </template>
@@ -20,11 +21,13 @@
       }
     },
     computed: {
-      ...mapGetters({
-      })
+      ...mapGetters([
+        'bannerdata'
+      ])
     },
     mounted() {
       this.moveimg()
+      this.$store.dispatch('bannerdata')
     },
     methods:{
       moveimg(){

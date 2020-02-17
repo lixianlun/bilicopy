@@ -1,8 +1,8 @@
 <template>
   <div class="boxnav">
     <ul class="hi_ul">
-      <navli v-for="(i,index) in classify" :item="i" :key="index" ></navli>
-      <navli v-for="(i,index) in classifd" :item="i" :key="index" ></navli>
+      <navli v-for="(i,index) in classify" :item="i" :key="i.title" ></navli>
+      <navli v-for="(i,index) in classifd" :item="i" :key="i.title" ></navli>
     </ul>
     <div class="movie">
     </div>
@@ -55,16 +55,16 @@
             title:"游戏",
             num:793
           },{
-            title:"游戏",
+            title:"数码",
             num:793
           },{
-            title:"游戏",
+            title:"鬼畜",
             num:793
           },{
-            title:"游戏",
+            title:"广告",
             num:793
           },{
-            title:"游戏",
+            title:"影视",
             num:793
           },{
             title:"更多",
