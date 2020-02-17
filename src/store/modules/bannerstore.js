@@ -24,10 +24,10 @@ const mutations={
   },
   [TYPE.BANNER_SUCCESS](state,bannerlist){
      state.bannerdata=bannerlist.data
-  }
-  // [TYPE.BANNER_ERROR](state){
+  },
+  [TYPE.BANNER_ERROR](state){
 
-  // }
+  }
 }
 export default {
   state,

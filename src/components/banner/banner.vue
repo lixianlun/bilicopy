@@ -38,7 +38,7 @@
           }
           let left=-100*this.count+'%'
           this.$refs.banner.style.marginLeft=left;
-        },3000)
+        },4500)
       }
     },
     components:{
@@ -52,9 +52,10 @@
     width 500px
     height 242px
     overflow hidden
-    position absolute
+    position relative
+    border-radius 3px
     .box_ul
       width 500%
-      position relative
+      position absolute
       transition .8s
 </style>
