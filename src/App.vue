@@ -3,19 +3,22 @@
     <Topcontainer></Topcontainer>
     <navul></navul>
     <banner></banner>
+    <promote></promote>
   </div>
 </template>
 
 <script>
   import Topcontainer from './components/common/Topcontainer.vue'
   import navul from "./components/common/nav_ul.vue"
-  import banner from "./components/banner/banner.vue"  
+  import banner from "./components/banner/banner.vue"
+  import promote from "./components/promote/promote.vue"
   export default {
     name: 'App',
     components: {
       Topcontainer,
       navul,
-      banner
+      banner,
+      promote
     }
   }
 </script>

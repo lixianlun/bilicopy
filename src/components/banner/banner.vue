@@ -36,7 +36,6 @@
         this.count=index;
         let left = -100*this.count +"%"
         this.$refs.banner.style.marginLeft=left;
-
         // clearInterval(this.outtime)
         // this.moveimg()
       },
