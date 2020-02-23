@@ -10,27 +10,27 @@
 
 <style lang="stylus">
   .search_size
-    position absolute
-    right 25%
-  .In_search
     width 330px
-    padding 8px 38px 8px 20px
-    margin-top 8px
-    border 0px solid white
+    float right
+    margin 8px 10% 0 0
+    border-radius 3px
+    background white
+    position relative
+  .In_search
+    width 230px
+    padding 8px 40px 8px 20px
     outline none
     border-radius 3px
-    position absolute
   input::-webkit-input-placeholder
     color #B3B3B3
     font-size 13px
   .search_button
-    width 38px
-    height 39px
-    border none
+    width 34px
+    height 38px
+    position absolute
     outline none
+    border none
     cursor pointer
-    position relative
-    margin 5px 0 0 349px
     background url(../../assets/icons.png) no-repeat
-    background-position -653px -718px
+    background-position -655px -720px
 </style>

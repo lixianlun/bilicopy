@@ -18,7 +18,6 @@
 <style lang="stylus">
   .nav_li
     float:left
-    margin 8px 25px 8px 0
     cursor pointer
     span
       font-size 5px

@@ -1,9 +1,11 @@
 <template>
   <div class="boxnav">
-    <ul class="hi_ul">
-      <navli v-for="(i,index) in classify" :item="i" :key="i.title" ></navli>
-      <navli v-for="(i,index) in classifd" :item="i" :key="i.title" ></navli>
-    </ul>
+    <!-- <ul class="hi_ul">
+      <navli v-for="(i,index) in classify" :item="i" :key="i.index" ></navli>
+    </ul> -->
+    <!-- <ul class="hi_ul">
+      <navli v-for="(i,index) in classifd" :item="i" :key="i.index" ></navli>
+    </ul> -->
     <div class="movie">
     </div>
   </div>
@@ -67,7 +69,7 @@
             title:"影视",
             num:793
           },{
-            title:"更多",
+            title:"更多>",
             num:793
           }
         ]
@@ -82,14 +84,5 @@
     margin-top 20px
     text-align center
   .hi_ul
-    width 805px
-    overflow hidden
     display inline-block
-    margin-right 40px
-    border-right 1px solid #e7e7e7
-  .movie
-    height 64px
-    display inline-block
-    margin 15px 0
-    vertical-align middle
 </style>

@@ -23,8 +23,6 @@
       margin-top 10px
       line-height 20px
       font-size 14px
-      // background blue
-      // display box
     img
       width 206px
       height 116px
