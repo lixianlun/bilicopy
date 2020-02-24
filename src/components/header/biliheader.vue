@@ -10,9 +10,9 @@
           <li><a href="">漫画</a></li>
           <li><a href="">赛事</a></li>
           <li><a href="">BML</a></li>
-          <login></login>
-          <!-- <search></search> -->
         </ul>
+        <login></login>
+        <search></search>
       </div>
   </div>
 

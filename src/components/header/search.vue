@@ -12,10 +12,11 @@
   .search_size
     width 330px
     float right
-    margin 8px 10% 0 0
+    margin 8px 0 0 0
     border-radius 3px
     background white
     position relative
+    right 15%
   .In_search
     width 230px
     padding 8px 40px 8px 20px
