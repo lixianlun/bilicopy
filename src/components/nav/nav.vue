@@ -15,14 +15,17 @@
       </li>
     </ul>
     <navli v-for="(i,index) in classify" :item="i" :key="i.index" ></navli>
+    <navright></navright>
   </div>
 </template>
 
 <script>
   import navli from "./nav_li.vue"
+  import navright from "./navright.vue"
   export default {
     components: {
-      navli
+      navli,
+      navright
     },
     data() {
       return {
@@ -50,6 +53,7 @@
             title1:"娱乐",
             title2:"影视"
           },{
+            id:1,
             title1:"放映厅",
             title2:"更多>"
           }
@@ -64,6 +68,7 @@
     height 64px
     margin-top 20px
     display flex
+    justify-content center
     .icon_nav
       border-right 1px solid #e7e7e7
       margin-right 5px

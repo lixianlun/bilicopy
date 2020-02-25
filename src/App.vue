@@ -2,14 +2,14 @@
   <div id="app">
     <biliheader></biliheader>
     <navul></navul>
-    <!-- <banner></banner> -->
+    <banner></banner>
     <!-- <promote></promote> -->
   </div>
 </template>
 
 <script>
   import biliheader from './components/header/biliheader.vue'
-  import navul from "./components/nav/nav_ul.vue"
+  import navul from "./components/nav/nav.vue"
   import banner from "./components/banner/banner.vue"
   import promote from "./components/promote/promote.vue"
   export default {

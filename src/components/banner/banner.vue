@@ -1,11 +1,13 @@
 <template>
-  <div class="box_overflow" @mouseover="stopbanner()" @mouseout="moveimg()">
-    <ul class="box_ul" ref="banner">
-      <bannerli v-for="(item,index) in bannerdata" :banner='item' :key='index'></bannerli>
-    </ul>
-    <ul class="banner_icon">
-      <li :class="{on:count==index}"  v-for="(item,index) in bannerdata" @click="iconclick(index)"></li>
-    </ul>
+  <div class="bannerlist">
+    <div class="box_overflow" @mouseover="stopbanner()" @mouseout="moveimg()">
+      <ul class="box_ul" ref="banner">
+        <bannerli v-for="(item,index) in bannerdata" :banner='item' :key='index'></bannerli>
+      </ul>
+      <ul class="banner_icon">
+        <li :class="{on:count==index}"  v-for="(item,index) in bannerdata" @click="iconclick(index)"></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -57,6 +59,9 @@
 </script>
 
 <style lang="stylus">
+  .bannerlist
+    display flex
+    margin-top 20px
   .box_overflow
     width 500px
     height 242px
