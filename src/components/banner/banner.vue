@@ -8,11 +8,13 @@
         <li :class="{on:count==index}"  v-for="(item,index) in bannerdata" @click="iconclick(index)"></li>
       </ul>
     </div>
+    <bannerrightpart></bannerrightpart>
   </div>
 </template>
 
 <script>
-  import bannerli from"./banner_li"
+  import bannerli from "./banner_li"
+  import bannerrightpart from "./banner_rightpart.vue"
   import {mapGetters} from 'vuex'
   export default {
     data(){
@@ -53,7 +55,8 @@
       }
     },
     components:{
-      bannerli
+      bannerli,
+      bannerrightpart
     }
   }
 </script>
@@ -62,8 +65,9 @@
   .bannerlist
     display flex
     margin-top 20px
+    justify-content center
   .box_overflow
-    width 500px
+    width 550px
     height 242px
     overflow hidden
     position relative

@@ -80,15 +80,18 @@
     li
       float left
       padding 7px 17px
-      border-radius 5px
       cursor pointer
-      background white
+      border-radius 3px
+      background transparent
       font-size 14px
       color black
+      &:hover
+        border-radius 3px
+        background #E7E7E7
       .b_icon
         width 20px
         height 20px
-        margin 0 auto 10px
+        margin 10px auto 5px
         display block
         background url(../../assets/icons.png) no-repeat
         &.b_icon_vp

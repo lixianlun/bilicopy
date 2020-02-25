@@ -78,6 +78,7 @@
         float left
         text-align center
         margin-right 5px
+        cursor pointer
       .icon_home
         width 36px
         height 36px

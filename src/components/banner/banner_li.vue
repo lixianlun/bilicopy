@@ -19,8 +19,9 @@
   .bannerli
     float left
     position relative
+    cursor pointer
     p
-      width 500px
+      width 550px
       line-height 40px
       background linear-gradient(to top,rgba(0,0,0,.6),transparent)
       position absolute
@@ -28,6 +29,6 @@
       a
         color #fff
     img
-      width 500px
+      width 550px
       height 242px
 </style>
