@@ -3,7 +3,7 @@
     <biliheader></biliheader>
     <navul></navul>
     <banner></banner>
-    <!-- <promote></promote> -->
+    <promote></promote>
   </div>
 </template>
 

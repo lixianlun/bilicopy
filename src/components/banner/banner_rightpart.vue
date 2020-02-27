@@ -34,13 +34,14 @@
     margin-left 10px
   .proli
     width 206px
+    height 116px
     cursor pointer
-    float left
     p
       margin-top 10px
       line-height 20px
       font-size 14px
     img
-      width 206px
-      height 116px
+      width 100%
+      height 100%
+      border-radius 3px
 </style>
