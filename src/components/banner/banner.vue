@@ -46,7 +46,7 @@
       moveimg(){
         this.outtime=setInterval(()=>{
           this.count++
-          if(this.count===3){
+          if(this.count===5){
             this.count=0
           }
           let left=-100*this.count+'%'
@@ -73,7 +73,7 @@
     position relative
     border-radius 3px
     .box_ul
-      width 300%
+      width 500%
       position absolute
       transition .8s
     .banner_icon

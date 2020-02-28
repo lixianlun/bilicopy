@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import bannerstore from './modules/bannerstore.js'
+import bannerStore from './modules/bannerStore.js'
+import promoteStore from './modules/promoteStore.js'
 
 Vue.use(Vuex)
 
@@ -18,6 +19,7 @@ export default new Vuex.Store({
   state,
   getters,
   modules:{
-    bannerstore
+    bannerStore,
+    promoteStore
   }
 });

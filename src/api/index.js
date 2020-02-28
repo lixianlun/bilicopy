@@ -9,3 +9,11 @@ export const bannerApi={
       })
     }
 }
+
+export const promoteApi={
+    list(){
+      return axios.get(url.promote).then((response)=>{
+        return response.data
+      })
+    }
+}

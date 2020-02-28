@@ -9,47 +9,55 @@
         </div>
       </div>
       <ul class="proul">
-        <li class="proli">
-          <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-          <p>【下一站是幸福】宋茜同款黑色小短裙制作教程</p>
-          <a href="">韩小四April</a>
-        </li>
-        <li class="proli">
-          <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-          <p>【下一站是幸福】宋茜同款黑色小短裙制作教程</p>
-          <a href="">韩小四April</a>
-        </li>
-        <li class="proli">
-          <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-          <p>【下一站是幸福】宋茜同款黑色小短裙制作教程</p>
-          <a href="">韩小四April</a>
-        </li>
-        <li class="proli">
-          <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-          <p>【下一站是幸福】宋茜同款黑色小短裙制作教程</p>
-          <a href="">韩小四April</a>
-        </li>
+          <li  class="proli" v-for="item in promotelist">
+            <img :src="item.pic" alt="">
+            <p>{{item.name}}</p>
+            <a href="">{{item.archive.owner.name}}</a>
+          </li>
+
       </ul>
     </div>
     <div class="promoteright">
+      <p class="onlinelist">在线列表</p>
       <a href="">
-        <img src="../../assets/5d60b7bc74d21fc6b840f5cdbed15d0f25604352.jpg" alt="">
+        <img :src="promoteAd[0].pic" alt="">
       </a>
     </div>
   </div>
 </template>
 
 <script>
+ import {mapGetters} from 'vuex'
+ export default{
+   computed:{
+     ...mapGetters([
+       'promotelist',
+       'promoteAd'
+     ])
+   },
+   mounted(){
+     this.$store.dispatch('promote')
+   }
+ }
 </script>
 
 <style lang="stylus">
   .promoteleft
     width 854px
-    // background #7E8C8D
   .promoteright
     width 320px
+    .onlinelist
+      width 320px
+      text-align center
+      padding 10px 0
+      background #f4f4f4
+      border 1px solid #E7E7E7
+      cursor pointer
+      &:hover
+        color #1890FF
     img
       width 100%
+      margin-top 10px
       border-radius 3px
   .promote
     width 1198px
@@ -78,13 +86,15 @@
     margin-top 15px
     display flex
     justify-content space-between
+    .proli:nth-last-child(1)
+      display none
     .proli
       width 206px
       float left
       &:hover
         color #1890ff
       p
-        margin-top 10px
+        margin-top 8px
         line-height 20px
         font-size 14px
       img
@@ -92,7 +102,7 @@
         height 116px
       a
         display inline-block
-        margin-top 10px
+        margin-top 7px
         color #999
         font-size 12px
 </style>

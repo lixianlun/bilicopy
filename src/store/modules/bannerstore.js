@@ -1,5 +1,5 @@
 import {bannerApi} from "../../api/index.js"
-import * as TYPE from '../bannerType.js'
+import * as TYPE from '../actionType.js'
 import axios from "axios"
 
 const state={
@@ -16,7 +16,6 @@ const actions= {
     bannerApi.list().then((response)=>{
       rootState.requesting=false
       commit(TYPE.BANNER_SUCCESS,response)
-      console.log(response)
     },(error)=>{
       commit(TYPE.BANNER_ERROR)
       console.log(rootState.requesting)

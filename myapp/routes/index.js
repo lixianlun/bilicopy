@@ -1,8 +1,8 @@
 import Router from 'koa-router'
-import banner from './banner'
+import urlRouter from './urlRouter.js'
 
 const router = Router()
 
-router.use(banner.routes(),banner.allowedMethods())
+router.use(urlRouter.routes(),urlRouter.allowedMethods())
 
 export default router
