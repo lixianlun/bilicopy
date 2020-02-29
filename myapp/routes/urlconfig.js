@@ -1,5 +1,7 @@
 // 各分类内容
 export const ding = 'http://www.bilibili.com/index/ding.json'
+//桌面背景
+export const headbackground ='https://api.bilibili.com/x/web-show/res/locs?pf=0&ids=142'
 
 // 轮播图
 export const banner = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=23'

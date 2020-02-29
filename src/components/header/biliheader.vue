@@ -1,5 +1,5 @@
 <template>
-  <div class="Topcontainer" style="background-image:url(//i0.hdslb.com/bfs/archive/7197cae46569a49abd98e0c51348068831be6a85.png);">
+  <div class="Topcontainer" :style="{backgroundImage: 'url('+ headdata.pic +')'}">
       <div class="bg_linear">
         <ul class="topnav">
           <li><a href=""><span class="bili_logo"></span>主站</a></li>
@@ -11,6 +11,7 @@
           <li><a href="">赛事</a></li>
           <li><a href="">BML</a></li>
         </ul>
+        <div></div>
         <login></login>
         <search></search>
       </div>
@@ -21,17 +22,24 @@
 <script>
   import search from "./search.vue"
   import login from "./login.vue"
-
+  import {mapGetters} from "vuex"
   export default{
-    name:'Topcontainer',
+    data(){
+      return {
+      }
+    },
+    computed:{
+      ...mapGetters([
+        'headdata'
+      ])
+    },
+    mounted(){
+      this.$store.dispatch('headdata')
+    },
     components: {
       search,
       login
     },
-    data(){
-      return {
-      }
-    }
   }
 </script>
 

@@ -5,3 +5,11 @@ export const BANNER_ERROR = 'BANNER_ERROR'
 export const PROMOTE_REQUEST = 'PROMOTE_REQUEST'
 export const PROMOTE_SUCCESS = 'PROMOTE_SUCCESS'
 export const PROMOTE_ERROR = 'PROMOTE_ERROR'
+
+export const HEAD_REQUEST = 'HEAD_REQUEST'
+export const HEAD_SUCCESS = 'HEAD_SUCCESS'
+export const HEAD_ERROR = 'HEAD_ERROR'
+
+export const REQUEST = 'REQUEST'
+export const SUCCESS = 'SUCCESS'
+export const ERROR = 'ERROR'

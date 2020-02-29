@@ -28,7 +28,7 @@ const mutations={
   },
   [TYPE.PROMOTE_SUCCESS](state,response){
     state.promotelist=response.data
-    state.promoteAd=response.promoteAd
+    state.promoteAd=response.promoteAd[0]
   },
   [TYPE.PROMOTE_ERROR](state){
 

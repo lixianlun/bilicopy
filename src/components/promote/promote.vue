@@ -5,7 +5,7 @@
         <div>
           <span class="pro_iconf"></span>
           <a class="promo_name">推广</a>
-          <a href="" class="promo_name_side">花式吃播·100种养膘指南</a>
+          <!-- <a href="" class="promo_name_side">花式吃播·100种养膘指南</a> -->
         </div>
       </div>
       <ul class="proul">
@@ -14,13 +14,12 @@
             <p>{{item.name}}</p>
             <a href="">{{item.archive.owner.name}}</a>
           </li>
-
       </ul>
     </div>
     <div class="promoteright">
       <p class="onlinelist">在线列表</p>
       <a href="">
-        <img :src="promoteAd[0].pic" alt="">
+        <img :src="promoteAd.pic" alt="">
       </a>
     </div>
   </div>
@@ -94,9 +93,15 @@
       &:hover
         color #1890ff
       p
+        height 40px
         margin-top 8px
         line-height 20px
         font-size 14px
+        font-weight 500
+        overflow hidden
+        display -webkit-box
+        -webkit-box-orient vertical
+        -webkit-line-clamp 2
       img
         width 206px
         height 116px

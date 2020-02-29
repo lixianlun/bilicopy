@@ -1,6 +1,13 @@
 import * as url from "./urlConfig"
 import axios from 'axios'
 
+export const headApi={
+  list(){
+    return axios.get(url.head).then((response)=>{
+      return response.data
+    })
+  }
+}
 
 export const bannerApi={
     list(){
