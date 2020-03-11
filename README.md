@@ -1,8 +1,10 @@
 
-cd bilicopy/myapp
+前端运行
+cd bilicopy
 npm install
 npm run dev
 
-cd bilicopy
+后端运行
+cd bilicopy/myapp
 npm install
 npm run dev
