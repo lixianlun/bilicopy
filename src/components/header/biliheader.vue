@@ -1,7 +1,7 @@
 <template>
-  <div class="Topcontainer" :style="{backgroundImage: 'url('+ headdata.pic +')'}">
+  <div class="Topcontainer" >
       <div class="bg_linear">
-        <ul class="topnav">
+        <!-- <ul class="topnav">
           <li><a href=""><span class="bili_logo"></span>主站</a></li>
           <li><a href="">番剧</a></li>
           <li><a href="">游戏中心</a></li>
@@ -10,10 +10,11 @@
           <li><a href="">漫画</a></li>
           <li><a href="">赛事</a></li>
           <li><a href="">BML</a></li>
-        </ul>
-        <div></div>
-        <login></login>
-        <search></search>
+        </ul> -->
+        <!-- <login></login> -->
+        <!-- <search></search> -->
+      </div>
+      <div class="backimg" :style="{backgroundImage: 'url('+ headdata.pic +')'}">
       </div>
   </div>
 
@@ -35,26 +36,35 @@
     },
     mounted(){
       this.$store.dispatch('headdata')
+      this.winwidth()
     },
     components: {
       search,
       login
     },
+    methods:{
+      winwidth(){
+        console.log(window.screen.width)
+      }
+    }
   }
 </script>
 
 <style lang="stylus">
     .Topcontainer
       position relative
-      width 100%
-      height 9.375vw
-      min-height 160px
-      background-repeat no-repeat
-      background-size cover
-      background-position center 0
-      .bg_linear
+      z-index 2
+      .backimg
+        position relative
+        height 9.375vw
         min-height 160px
-        background: linear-gradient(rgba(0,0,0,.2.8),transparent)
+        min-width 999px
+        background-repeat no-repeat
+        background-size cover
+        background-position center 0
+      .bg_linear
+        // min-height 160px
+        // background: linear-gradient(rgba(0,0,0,.2.8),transparent)
     .topnav
       width 100%
       .bili_logo

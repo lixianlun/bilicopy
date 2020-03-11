@@ -1,23 +1,23 @@
 <template>
-  <div class="promote">
+  <div class="space-between b-warp">
     <div  class="promoteleft">
       <div>
         <div>
           <span class="pro_iconf"></span>
           <a class="promo_name">推广</a>
-          <!-- <a href="" class="promo_name_side">花式吃播·100种养膘指南</a> -->
+          <a href="" class="promo_name_side">花式吃播·100种养膘指南</a>
         </div>
       </div>
-      <ul class="proul">
-          <li  class="proli" v-for="item in promotelist">
+      <ul class="proul extension">
+          <li  class="proli video-card-common" v-for="item in promotelist" :key="item.index">
             <img :src="item.pic" alt="">
             <p>{{item.name}}</p>
             <a href="">{{item.archive.owner.name}}</a>
           </li>
       </ul>
     </div>
-    <div class="promoteright">
-      <p class="onlinelist">在线列表</p>
+    <div class="promoteright gg-window">
+      <p class="onlinelist gg-window">在线列表</p>
       <a href="">
         <img :src="promoteAd.pic" alt="">
       </a>
@@ -42,11 +42,9 @@
 
 <style lang="stylus">
   .promoteleft
-    width 854px
+    // width 854px
   .promoteright
-    width 320px
     .onlinelist
-      width 320px
       text-align center
       padding 10px 0
       background #f4f4f4
@@ -58,11 +56,6 @@
       width 100%
       margin-top 10px
       border-radius 3px
-  .promote
-    width 1198px
-    display flex
-    margin 30px auto 0
-    justify-content space-between
   .pro_iconf
     width 40px
     height 34px
@@ -86,9 +79,9 @@
     display flex
     justify-content space-between
     .proli:nth-last-child(1)
-      display none
+      display none //隐藏最后一个
     .proli
-      width 206px
+      // width 206px
       float left
       &:hover
         color #1890ff
@@ -103,8 +96,8 @@
         -webkit-box-orient vertical
         -webkit-line-clamp 2
       img
-        width 206px
-        height 116px
+        width 100%
+        height 100%
       a
         display inline-block
         margin-top 7px

@@ -5,7 +5,7 @@
         <bannerli v-for="(item,index) in bannerdata" :banner='item' :key='index'></bannerli>
       </ul>
       <ul class="banner_icon">
-        <li :class="{on:count==index}"  v-for="(item,index) in bannerdata" @click="iconclick(index)"></li>
+        <li :class="{on:count==index}"  v-for="(item,index) in bannerdata" @click="iconclick(index)" :key="item.index"></li>
       </ul>
     </div>
     <bannerrightpart></bannerrightpart>
