@@ -10,7 +10,7 @@
       </div>
       <ul class="proul extension">
           <li  class="proli video-card-common" v-for="item in promotelist" :key="item.index">
-            <img :src="item.pic" alt="">
+            <img class="" :src="item.pic" alt="">
             <p>{{item.name}}</p>
             <a href="">{{item.archive.owner.name}}</a>
           </li>
@@ -81,8 +81,6 @@
     .proli:nth-last-child(1)
       display none //隐藏最后一个
     .proli
-      // width 206px
-      float left
       &:hover
         color #1890ff
       p

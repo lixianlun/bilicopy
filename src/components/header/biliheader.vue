@@ -1,20 +1,14 @@
 <template>
   <div class="Topcontainer" >
-      <div class="bg_linear">
-        <!-- <ul class="topnav">
-          <li><a href=""><span class="bili_logo"></span>主站</a></li>
-          <li><a href="">番剧</a></li>
-          <li><a href="">游戏中心</a></li>
-          <li><a href="">直播</a></li>
-          <li><a href="">会员购</a></li>
-          <li><a href="">漫画</a></li>
-          <li><a href="">赛事</a></li>
-          <li><a href="">BML</a></li>
-        </ul> -->
-        <!-- <login></login> -->
-        <!-- <search></search> -->
-      </div>
+      <ul class="topnav">
+        <li class="headli" v-for="head in headli" :key="head.index"><a class="fs" href="">{{head.text}}</a></li>
+      </ul>
+      <!-- <login></login> -->
+      <!-- <search></search> -->
       <div class="backimg" :style="{backgroundImage: 'url('+ headdata.pic +')'}">
+        <div class="bg_linear">
+        </div>
+        
       </div>
   </div>
 
@@ -27,6 +21,25 @@
   export default{
     data(){
       return {
+        headli:[
+          {
+            text:'主站'
+          },{
+            text:'番剧'
+          },{
+            text:'游戏中心'
+          },{
+            text:'直播'
+          },{
+            text:'会员购'
+          },{
+            text:'漫画'
+          },{
+            text:'赛事'
+          },{
+            text:'BML'
+          }
+        ]
       }
     },
     computed:{
@@ -51,34 +64,41 @@
 </script>
 
 <style lang="stylus">
-    .Topcontainer
-      position relative
-      z-index 2
-      .backimg
-        position relative
-        height 9.375vw
-        min-height 160px
-        min-width 999px
-        background-repeat no-repeat
-        background-size cover
-        background-position center 0
-      .bg_linear
-        // min-height 160px
-        // background: linear-gradient(rgba(0,0,0,.2.8),transparent)
-    .topnav
-      width 100%
-      .bili_logo
-        width 18px
-        height 18px
-        margin 0 2px 0 35px
-        float left
-        background url(../../assets/icons.png) no-repeat
-        background-position -854px -86px
-      li
-        float left
-        margin-top 16px
-        margin-right 14px
-      a
-        color white
-        font-size 14px
+.Topcontainer
+  .backimg
+    position relative
+    z-index -1
+    height 9.375vw
+    min-height 160px
+    min-width 999px
+    background-repeat no-repeat
+    background-size cover
+    background-position center 0
+    .bg_linear
+      min-height 160px
+      background: linear-gradient(rgba(0,0,0,.3),transparent)
+.topnav
+  height 36px
+  display flex
+  align-items:center
+  position absolute
+  z-index 0
+  .fs
+    color white
+    text-shadow 0 1px 1px rgba(0,0,0,.3)
+    font-size 14px
+    line-height 30px
+.headli
+  line-height 30px
+  margin-right 14px
+  box-sizing border-box
+.headli:first-child
+  a:before
+    content ""
+    width 18px
+    height 18px
+    display inline-block
+    vertical-align middle
+    background url(../../assets/icons.png) no-repeat
+    background-position -854px -86px
 </style>

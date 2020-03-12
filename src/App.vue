@@ -2,7 +2,7 @@
   <div id="app">
     <biliheader></biliheader>
     <!-- <navul></navul> -->
-    <banner></banner>
+    <!-- <banner></banner> -->
     <promote></promote>
   </div>
 </template>

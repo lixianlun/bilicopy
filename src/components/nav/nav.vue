@@ -14,7 +14,7 @@
         排行榜
       </li>
     </ul>
-    <navli v-for="(i,index) in classify" :item="i" :key="i.index" ></navli>
+    <navli v-for="i in classify" :item="i" :key="i.index" ></navli>
     <navright></navright>
   </div>
 </template>
