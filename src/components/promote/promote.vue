@@ -81,6 +81,7 @@
     .proli:nth-last-child(1)
       display none //隐藏最后一个
     .proli
+      cursor pointer
       &:hover
         color #1890ff
       p
@@ -96,6 +97,7 @@
       img
         width 100%
         height 100%
+        border-radius 3px
       a
         display inline-block
         margin-top 7px

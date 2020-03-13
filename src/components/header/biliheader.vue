@@ -1,15 +1,18 @@
 <template>
   <div class="Topcontainer" >
-      <ul class="topnav">
-        <li class="headli" v-for="head in headli" :key="head.index"><a class="fs" href="">{{head.text}}</a></li>
-      </ul>
-      <!-- <login></login> -->
-      <!-- <search></search> -->
-      <div class="backimg" :style="{backgroundImage: 'url('+ headdata.pic +')'}">
-        <div class="bg_linear">
-        </div>
-        
+    <div class="topnav">
+      <div class="topre">
+        <ul class="headul">
+          <li class="headli" v-for="head in headli" :key="head.index"><a class="fs" href="">{{head.text}}</a></li>
+        </ul>
+        <search></search>
+        <login></login>
       </div>
+    </div>
+    <div class="backimg" :style="{backgroundImage: 'url('+ headdata.pic +')'}">
+      <div class="bg_linear">
+      </div>
+    </div>
   </div>
 
 </template>
@@ -65,33 +68,42 @@
 
 <style lang="stylus">
 .Topcontainer
-  .backimg
-    position relative
-    z-index -1
-    height 9.375vw
-    min-height 160px
-    min-width 999px
-    background-repeat no-repeat
-    background-size cover
-    background-position center 0
-    .bg_linear
-      min-height 160px
-      background: linear-gradient(rgba(0,0,0,.3),transparent)
+  position relative
+.backimg
+  position relative
+  z-index 0
+  height 9.375vw
+  min-height 160px
+  min-width 999px
+  background-repeat no-repeat
+  background-size cover
+  background-position center 0
+.bg_linear
+  min-height 160px
+  background: linear-gradient(rgba(0,0,0,.4),transparent)
 .topnav
-  height 36px
+  width 100%
+  padding 10px 24px
+  box-sizing border-box
+  position absolute
+  z-index 1
+.headul
   display flex
   align-items:center
-  position absolute
-  z-index 0
-  .fs
-    color white
-    text-shadow 0 1px 1px rgba(0,0,0,.3)
-    font-size 14px
-    line-height 30px
+.topre
+  position relative
+  display flex
+  align-items flex-start
+  justify-content space-between
+.fs
+  color white
+  text-shadow 0 1px 1px rgba(0,0,0,.3)
+  font-size 14px
+  line-height 30px
+  white-space nowrap
 .headli
   line-height 30px
   margin-right 14px
-  box-sizing border-box
 .headli:first-child
   a:before
     content ""
