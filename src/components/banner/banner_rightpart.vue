@@ -1,43 +1,86 @@
 <template>
-  <ul class="banright">
-    <li class="proli">
-      <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
+  <ul class="banr banrwh">
+    <li class="prodli video-card-common" v-for="(item,index) in onedata.slice(0,6)" :key="index">
+      <img class="bnimg" :src="item.pic" alt="">
+      <div class="backbetween video-card-common">
+        <p class="br_cover">{{item.title}}</p>
+        <p class="br_p" href="">{{item.owner.name}}</p>
+        <p class="br_p">5.5万播放量</p>
+      </div>
+      <p class="bew_corver"></p>
     </li>
-    <li class="proli">
-      <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-    </li>
-    <li class="proli">
-      <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-    </li>
-    <li class="proli">
-      <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-    </li>
-    <li class="proli">
-      <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-    </li>
-    <li class="proli">
-      <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-    </li>
+    <!-- <li class="proli video-card-common" v-for="(item,index) in onedata.slice(0,6)" :key="index">
+      <img :src="item.pic" alt="">
+    </li> -->
   </ul>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
+  export default {
+    data(){
+      return{
+        count:0,
+        stop:false
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'onedata'
+      ])
+    },
+    mounted() {
+      // console.log( document.body.clientWidth)
+      this.$store.dispatch('onedata')
+    },
+    methods:{
+    }
+  }
 </script>
 
 <style lang="stylus">
-  .banright
-    width 638px
+  .banr
     display flex
     flex-wrap wrap
     justify-content space-between
     align-content space-between
-    margin-left 10px
-  .proli
-    width 206px
-    height 116px
+  .prodli
+    position relative
     cursor pointer
-    p
-      margin-top 10px
-      line-height 20px
-      font-size 14px
+    overflow hidden
+    &:hover
+      .backbetween
+        background rgba(0,0,0,.6)
+        top 0
+        .br_cover
+          background transparent
+          -webkit-line-clamp 2
+          line-height 13pt
+    .bew_corver
+      width 100%
+      height 35px
+      position absolute
+      bottom 0
+      background linear-gradient(transparent,rgba(0,0,0,.6))
+      border-radius 0 0 3px 3px
+    .backbetween
+      background rgba(0,0,0,0)
+      position absolute
+      top 61px
+      z-index 1
+      color azure
+      transition top .2s,background .3s
+      border-radius 3px
+      .br_cover
+        line-height 16pt
+        font-size 14px
+        padding 3px 12px 3px 8px
+        margin 8px 0 0px 0
+        overflow hidden
+        -webkit-box-orient vertical
+        display -webkit-box
+        -webkit-line-clamp 1
+      .br_p
+        font-size 9px
+        padding 3px 12px 4px 8px
 </style>

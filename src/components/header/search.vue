@@ -2,7 +2,7 @@
   <div class="searchbox">
     <div class="search_size">
       <form action="" class="nav_search">
-        <input type="text" placeholder="真当自己是大小姐!" class="In_search nav_search">
+        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" class="In_search nav_search">
         <div class="butback">
           <button type="button" class="search_button"></button>
         </div>

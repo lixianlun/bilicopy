@@ -24,3 +24,10 @@ export const promoteApi={
       })
     }
 }
+export const oneApi={
+    list(){
+      return axios.get(url.one).then((response)=>{
+        return response.data
+      })
+    }
+}

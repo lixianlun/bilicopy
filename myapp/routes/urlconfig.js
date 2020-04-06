@@ -12,6 +12,7 @@ export const getSearchDefaultWords = 'http://www.bilibili.com/widget/getSearchDe
 // 主站头部背景图
 export const topbg = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=142'
 
+export const numberone= 'https://api.bilibili.com/x/web-interface/dynamic/region?&;jsonp=jsonp&ps=10&rid=1'
 // 各分类热门内容
 export const hot = 'http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=1550,1554,1556,1558,1560,1562,1564,1566,1568,1570,1572,1574,1624,1636'
 
@@ -42,6 +43,7 @@ export const randking = 'http://www.bilibili.com/index/ranking.json'
 export const recommend = 'http://www.bilibili.com/index/recommend.json'
 
 export const rankbase = 'http://www.bilibili.com/index/catalogy/'
+export const oneday = 'https://api.bilibili.com/x/web-interface/dynamic/region?&;jsonp=jsonp&ps=10&rid=1'
 // 各分类下3日排行 http://www.bilibili.com/index/catalogy/
 // 动画排行 1-3day.json
 // 番剧排行 13-3day.json

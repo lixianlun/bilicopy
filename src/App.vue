@@ -2,7 +2,7 @@
   <div id="app">
     <biliheader></biliheader>
     <!-- <navul></navul> -->
-    <!-- <banner></banner> -->
+    <banner></banner>
     <promote></promote>
   </div>
 </template>
@@ -19,6 +19,8 @@
       navul,
       banner,
       promote
+    },
+    methods:{
     }
   }
 </script>
@@ -36,10 +38,22 @@
     display flex
     justify-content space-between
     margin-bottom 40px
+  .color
+    color #1890FF
+  .bnimg
+    width 100%
+    height 100%
+    border-radius 3px
   @media screen and (max-width 1438px)
+    .banrwh
+      width 530px
+      height 202px
+    .bannerwh
+      width 459px
+      height 202px
     .b-warp
       width 999px
-      margin 0 auto 
+      margin 0 auto
     .video-card-common
       width 170px
       height 96px
@@ -48,9 +62,14 @@
     .gg-window
       width 265px
   @media screen and (min-width 1438px)
+    .bannerwh
+      width 550px
+      height 242px
+    .banrwh
+      width 638px
     .b-warp
       width 1198px
-      margin 0 auto 
+      margin 0 auto
     .video-card-common
       width 206px
       height 116px

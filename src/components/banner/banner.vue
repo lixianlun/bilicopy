@@ -1,11 +1,16 @@
 <template>
-  <div class="bannerlist">
-    <div class="box_overflow" @mouseover="stopbanner()" @mouseout="moveimg()">
+  <div class="bannerlist b-warp">
+    <div class="box_overflow bannerwh" @mouseover="stopbanner()" @mouseout="moveimg()">
       <ul class="box_ul" ref="banner">
-        <bannerli v-for="(item,index) in bannerdata" :banner='item' :key='index'></bannerli>
+        <li v-for="(item,index) in bannerdata.slice(0,bannerdata.length)" class="bannerli bannerwh" :key='index' >
+            <img class="banimg" :src="item.pic">
+            <p>
+              <a :href="item.url">&nbsp;&nbsp;&nbsp;&nbsp;{{item.name}}</a>
+            </p>
+        </li>
       </ul>
       <ul class="banner_icon">
-        <li :class="{on:count==index}"  v-for="(item,index) in bannerdata" @click="iconclick(index)" :key="item.index"></li>
+        <li :class="{on:count==index}"  v-for="(item,index) in bannerdata.slice(0,bannerdata.length==1?0:bannerdata.length)" @click="iconclick(index)" :key="item.index"></li>
       </ul>
     </div>
     <bannerrightpart></bannerrightpart>
@@ -13,7 +18,7 @@
 </template>
 
 <script>
-  import bannerli from "./banner_li"
+  // import bannerli from "./banner_li"
   import bannerrightpart from "./banner_rightpart.vue"
   import {mapGetters} from 'vuex'
   export default {
@@ -37,6 +42,7 @@
         clearInterval(this.outtime)
       },
       iconclick(index){
+
         this.count=index;
         let left = -100*this.count +"%"
         this.$refs.banner.style.marginLeft=left;
@@ -46,7 +52,7 @@
       moveimg(){
         this.outtime=setInterval(()=>{
           this.count++
-          if(this.count===5){
+          if(this.count==this.bannerdata.length){
             this.count=0
           }
           let left=-100*this.count+'%'
@@ -55,7 +61,6 @@
       }
     },
     components:{
-      bannerli,
       bannerrightpart
     }
   }
@@ -65,30 +70,45 @@
   .bannerlist
     display flex
     margin-top 20px
-    justify-content center
+    justify-content space-between
+    margin-bottom 40px
   .box_overflow
-    width 550px
-    height 242px
     overflow hidden
     position relative
     border-radius 3px
     .box_ul
       width 500%
       position absolute
-      transition .8s
-    .banner_icon
-      position absolute
-      bottom 9px
-      right 15px
-      li
-        width 18px
-        height 18px
-        float left
-        cursor pointer
-        margin-left 5px
-        background url(../../assets/icons.png) -855px -790px no-repeat
-        &:hover
-          background-position -919px -790px
-        &.on
-          background-position -855px -727px
+      transition .6s ease
+.bannerli
+  float left
+  position relative
+  cursor pointer
+  // box-sizing border-box
+  p
+    line-height 40px
+    background linear-gradient(to top,rgba(0,0,0,.6),transparent)
+    position absolute
+    bottom 0
+    a
+      font-size 14px
+      color #fff
+  .banimg
+    width 100%
+    height 100%
+.banner_icon
+  position absolute
+  bottom 9px
+  right 15px
+  li
+    width 18px
+    height 18px
+    float left
+    cursor pointer
+    margin-left 5px
+    background url(../../assets/icons.png) -855px -790px no-repeat
+    &:hover
+      background-position -919px -790px
+    &.on
+      background-position -855px -727px
 </style>

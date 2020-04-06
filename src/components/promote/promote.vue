@@ -5,13 +5,13 @@
         <div>
           <span class="pro_iconf"></span>
           <a class="promo_name">推广</a>
-          <a href="" class="promo_name_side">花式吃播·100种养膘指南</a>
+          <a href="" class="promo_name_side"></a>
         </div>
       </div>
       <ul class="proul extension">
-          <li  class="proli video-card-common" v-for="item in promotelist" :key="item.index">
-            <img class="" :src="item.pic" alt="">
-            <p>{{item.name}}</p>
+          <li  class="proli video-card-common" v-for="item in promotelist.slice(0,4)" :key="item.index">
+            <img class="bnimg" :src="item.pic" alt="">
+            <p class="pro_p">{{item.name}}</p>
             <a href="">{{item.archive.owner.name}}</a>
           </li>
       </ul>
@@ -19,7 +19,7 @@
     <div class="promoteright gg-window">
       <p class="onlinelist gg-window">在线列表</p>
       <a href="">
-        <img :src="promoteAd.pic" alt="">
+        <img class="" :src="promoteAd.pic" alt="">
       </a>
     </div>
   </div>
@@ -71,20 +71,19 @@
   .promo_name_side
     margin-left 25px
     font-size 12px
-    color #505050
     &:hover
       color #1890ff
   .proul
     margin-top 15px
     display flex
     justify-content space-between
-    .proli:nth-last-child(1)
-      display none //隐藏最后一个
     .proli
       cursor pointer
+      font-size 12px
+      transition color .3s
       &:hover
         color #1890ff
-      p
+      .pro_p
         height 40px
         margin-top 8px
         line-height 20px
@@ -94,10 +93,6 @@
         display -webkit-box
         -webkit-box-orient vertical
         -webkit-line-clamp 2
-      img
-        width 100%
-        height 100%
-        border-radius 3px
       a
         display inline-block
         margin-top 7px

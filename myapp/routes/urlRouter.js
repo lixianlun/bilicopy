@@ -4,7 +4,8 @@ import {
   banner,
   promote,
   promoteAd,
-  headbackground
+  headbackground,
+  oneday
 } from './urlconfig'
 
 const router = Router()
@@ -22,5 +23,9 @@ router.get('/promote', async (ctx, next) => {
 router.get('/head', async (ctx, next) => {
   let response = await axios.get(headbackground)
   ctx.body = response.data
+})
+router.get('/one', async (ctx, next) => {
+  let response = await axios.get(oneday)
+  ctx.body = response.data.data
 })
 export default router
