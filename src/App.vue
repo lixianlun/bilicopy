@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <biliheader></biliheader>
-    <!-- <navul></navul> -->
+    <navul></navul>
     <banner></banner>
     <promote></promote>
   </div>
@@ -53,7 +53,6 @@
       height 202px
     .b-warp
       width 999px
-      margin 0 auto
     .video-card-common
       width 170px
       height 96px
@@ -69,7 +68,6 @@
       width 638px
     .b-warp
       width 1198px
-      margin 0 auto
     .video-card-common
       width 206px
       height 116px

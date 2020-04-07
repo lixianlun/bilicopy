@@ -1,5 +1,5 @@
 <template>
-  <div class="space-between b-warp">
+  <div class="space-between b-warp promt">
     <div  class="promoteleft">
       <div>
         <div>
@@ -41,8 +41,8 @@
 </script>
 
 <style lang="stylus">
-  .promoteleft
-    // width 854px
+  .promt
+    margin 0 auto
   .promoteright
     .onlinelist
       text-align center

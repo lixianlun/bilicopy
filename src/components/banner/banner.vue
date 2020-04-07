@@ -69,9 +69,8 @@
 <style lang="stylus">
   .bannerlist
     display flex
-    margin-top 20px
+    margin 20px auto
     justify-content space-between
-    margin-bottom 40px
   .box_overflow
     overflow hidden
     position relative
