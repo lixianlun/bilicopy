@@ -16,7 +16,7 @@
     </div>
     <div class="promoteright gg-window">
       <p class="onlinelist gg-window">在线列表</p>
-      <a href="">
+      <a :href="promoteAd.url" target="_blank">
         <img class="" :src="promoteAd.pic" alt="">
       </a>
     </div>
