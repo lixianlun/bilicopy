@@ -46,7 +46,7 @@
           },{
             title: "科技",time:null,active:false,width:172,content:[{list:'趣味科普人文'},{list:'野生技术协会'},{list:'演讲·公开课'},{list:'星海'},{list:'机械'},{list:'汽车'}]
           },{
-            title: "娱乐",time:null,active:false,width:80,content:[{list:'手机平板'},{list:'电脑装机'},{list:'摄影摄像'},{list:'影音智能'}]
+            title: "数码",time:null,active:false,width:80,content:[{list:'手机平板'},{list:'电脑装机'},{list:'摄影摄像'},{list:'影音智能'}]
           },{
             title: "生活",time:null,active:false,width:124,content:[{list:'搞笑'},{list:'日常'},{list:'美食圈'},{list:'动物圈'},{list:'手工'},{list:'绘画'},{list:'运动'},{list:'其他'}]
           },{
@@ -56,7 +56,7 @@
           },{
             title: "广告",time:null,active:false
           },{
-            title: "数码",time:null,active:false,width:90,content:[{list:'综艺'},{list:'明星'},{list:'Korea相关'}]
+            title: "娱乐",time:null,active:false,width:90,content:[{list:'综艺'},{list:'明星'},{list:'Korea相关'}]
           },{
             title: "影视",time:null,active:false,width:84,content:[{list:'影视杂谈'},{list:'影视剪辑'},{list:'短片'},{list:'预告·资讯'}]
           },{
@@ -72,7 +72,7 @@
         clearInterval(a.time)
         a.time=setTimeout(()=>{
           return a.active = false
-        },300)
+        },200)
       },
       over(a){
         clearInterval(a.time)

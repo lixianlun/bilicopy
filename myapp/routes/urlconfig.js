@@ -10,7 +10,6 @@ export const banner = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=23'
 // 默认搜索单词
 export const getSearchDefaultWords = 'http://www.bilibili.com/widget/getSearchDefaultWords'
 
-
 export const numberone= 'https://api.bilibili.com/x/web-interface/dynamic/region?&;jsonp=jsonp&ps=10&rid=1'
 // 各分类热门内容
 export const hot = 'http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=1550,1554,1556,1558,1560,1562,1564,1566,1568,1570,1572,1574,1624,1636'
@@ -23,12 +22,8 @@ export const promoteAd = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=29'
 
 // 直播
 export const liveXhr = 'http://api.live.bilibili.com/bili/recom'
-
-// 番剧下方更新列表右侧新番放送表上侧
-export const slideshow = 'http://www.bilibili.com/index/slideshow/41.json'
-// 番剧下方更新列表右侧新番放送表下侧
-export const season = 'http://www.bilibili.com/api_proxy?app=bangumi&action=get_season_by_tag&page=1&tag_id=101&pagesize=4'
-
+//横条广告
+export const livead= 'http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=40'
 
 // 轮播图右边总排行
 // 3日排行

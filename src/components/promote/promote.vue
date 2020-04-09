@@ -5,10 +5,12 @@
       <a class="promo_name">推广</a>
       <a href="" class="promo_name_side"></a>
       <ul class="proul extension">
-          <li  class="proli video-card-common" v-for="item in promotelist.slice(0,4)" :key="item.index">
-            <img class="bnimg" :src="item.pic" alt="">
-            <p class="pro_p">{{item.name}}</p>
-            <a href="">{{item.archive.owner.name}}</a>
+          <li class="proli video-card-common" v-for="item in promotelist.slice(0,4)" :key="item.index">
+            <a :href="item.url">
+              <img class="bnimg" :src="item.pic" alt="">
+              <p class="pro_p">{{item.name}}</p>
+              <p class="p_a" :href="item.url">{{item.archive.owner.name}}</p>
+            </a>
           </li>
       </ul>
     </div>
@@ -78,7 +80,8 @@
       font-size 12px
       transition color .3s
       &:hover
-        color #1890ff
+        .pro_p
+          color #1890ff
       .pro_p
         height 40px
         margin-top 8px
@@ -89,7 +92,7 @@
         display -webkit-box
         -webkit-box-orient vertical
         -webkit-line-clamp 2
-      a
+      .p_a
         display inline-block
         margin-top 7px
         color #999
