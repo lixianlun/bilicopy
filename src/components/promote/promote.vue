@@ -1,13 +1,9 @@
 <template>
   <div class="space-between b-warp promt">
-    <div  class="promoteleft">
-      <div>
-        <div>
-          <span class="pro_iconf"></span>
-          <a class="promo_name">推广</a>
-          <a href="" class="promo_name_side"></a>
-        </div>
-      </div>
+    <div class="promoteleft">
+      <span class="pro_iconf"></span>
+      <a class="promo_name">推广</a>
+      <a href="" class="promo_name_side"></a>
       <ul class="proul extension">
           <li  class="proli video-card-common" v-for="item in promotelist.slice(0,4)" :key="item.index">
             <img class="bnimg" :src="item.pic" alt="">
@@ -42,7 +38,7 @@
 
 <style lang="stylus">
   .promt
-    margin 0 auto
+    margin 30px auto
   .promoteright
     .onlinelist
       text-align center

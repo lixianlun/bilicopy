@@ -21,6 +21,15 @@
       promote
     },
     methods:{
+      wimh(){
+        setInterval(function(){
+          console.log(document.documentElement.scrollTop)
+          console.log()
+        },1500)
+      }
+    },
+    mounted(){
+      this.wimh()
     }
   }
 </script>
@@ -29,6 +38,10 @@
   *
     margin 0
     padding 0
+  body
+    position relative
+    background white
+    z-index 0
   li
     list-style none
   a

@@ -1,6 +1,7 @@
 // 各分类内容
 export const ding = 'http://www.bilibili.com/index/ding.json'
-//桌面背景
+
+//桌面背景+bilibililogo
 export const headbackground ='https://api.bilibili.com/x/web-show/res/locs?pf=0&ids=142'
 
 // 轮播图
@@ -9,8 +10,6 @@ export const banner = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=23'
 // 默认搜索单词
 export const getSearchDefaultWords = 'http://www.bilibili.com/widget/getSearchDefaultWords'
 
-// 主站头部背景图
-export const topbg = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=142'
 
 export const numberone= 'https://api.bilibili.com/x/web-interface/dynamic/region?&;jsonp=jsonp&ps=10&rid=1'
 // 各分类热门内容

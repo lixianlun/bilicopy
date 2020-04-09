@@ -73,15 +73,11 @@
     },
     mounted(){
       this.$store.dispatch('headdata')
-      this.winwidth()
     },
     components: {
       search
     },
     methods:{
-      winwidth(){
-        // console.log(window.screen.width)
-      },
       ffff(){
         this.isActive=false
       },
@@ -113,7 +109,7 @@
   background-position center 0
 .bg_linear
   min-height 160px
-  background: linear-gradient(rgba(0,0,0,.4),transparent)
+  background: linear-gradient(rgba(0,0,0,.3),transparent)
 .topnav
   width 100%
   padding 10px 20px

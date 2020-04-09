@@ -83,7 +83,6 @@
   float left
   position relative
   cursor pointer
-  // box-sizing border-box
   p
     line-height 40px
     background linear-gradient(to top,rgba(0,0,0,.6),transparent)
