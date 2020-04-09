@@ -1,13 +1,15 @@
 <template>
   <ul class="banr banrwh">
     <li class="prodli video-card-common" v-for="(item,index) in onedata.slice(0,6)" :key="index">
-      <img class="bnimg" :src="item.pic" alt="">
-      <div class="backbetween video-card-common">
-        <p class="br_cover">{{item.title}}</p>
-        <p class="br_p br_m" href="">{{item.owner.name}}</p>
-        <p class="br_p br_b">5.5万播放量</p>
-      </div>
-      <p class="bew_corver"></p>
+       <a :href="'https://www.bilibili.com/video/av'+item.aid" target="_blank">
+         <img class="bnimg" :src="item.pic" alt="">
+         <div class="backbetween video-card-common">
+           <p class="br_cover">{{item.title}}</p>
+           <p class="br_p br_m" href="">{{item.owner.name}}</p>
+           <p class="br_p br_b">5.5万播放量</p>
+         </div>
+         <p class="bew_corver"></p>
+       </a>
     </li>
   </ul>
 </template>

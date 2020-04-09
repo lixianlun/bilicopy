@@ -2,12 +2,14 @@
   <div class="bannerlist b-warp">
     <div class="box_overflow bannerwh" @mouseover="stopbanner()" @mouseout="moveimg()">
       <ul class="box_ul" ref="banner">
-        <li v-for="(item,index) in bannerdata.slice(0,bannerdata.length)" class="bannerli bannerwh" :key='index' >
-            <img class="banimg" :src="item.pic">
-            <p>
-              <a :href="item.url">&nbsp;&nbsp;&nbsp;&nbsp;{{item.name}}</a>
-            </p>
-        </li>
+          <li v-for="(item,index) in bannerdata.slice(0,bannerdata.length)" class="bannerli bannerwh" :key='index' >
+              <a :href="item.url" target="_blank">
+                <img class="banimg" :src="item.pic">
+                <p>
+                  <a>&nbsp;&nbsp;&nbsp;&nbsp;{{item.name}}</a>
+                </p>
+              </a>
+          </li>
       </ul>
       <ul class="banner_icon">
         <li :class="{on:count==index}"  v-for="(item,index) in bannerdata.slice(0,bannerdata.length==1?0:bannerdata.length)" @click="iconclick(index)" :key="item.index"></li>

@@ -6,7 +6,7 @@
       <a href="" class="promo_name_side"></a>
       <ul class="proul extension">
           <li class="proli video-card-common" v-for="item in promotelist.slice(0,4)" :key="item.index">
-            <a :href="item.url">
+            <a :href="item.url" target='_blank'>
               <img class="bnimg" :src="item.pic" alt="">
               <p class="pro_p">{{item.name}}</p>
               <p class="p_a" :href="item.url">{{item.archive.owner.name}}</p>
