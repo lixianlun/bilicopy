@@ -8,7 +8,10 @@ export const headbackground ='https://api.bilibili.com/x/web-show/res/locs?pf=0&
 export const banner = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=23'
 
 // 默认搜索单词
-export const getSearchDefaultWords = 'http://www.bilibili.com/widget/getSearchDefaultWords'
+export const searchdefault='https://api.bilibili.com/x/web-interface/search/default'
+// export const getSearchDefaultWords = 'http://www.bilibili.com/widget/getSearchDefaultWords'
+export const searchshow='https://s.search.bilibili.com/main/suggest?term='
+export const serach='https://search.bilibili.com/all?keyword='
 
 export const numberone= 'https://api.bilibili.com/x/web-interface/dynamic/region?&;jsonp=jsonp&ps=10&rid=1'
 // 各分类热门内容
@@ -22,6 +25,7 @@ export const promoteAd = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=29'
 
 // 直播
 export const liveXhr = 'http://api.live.bilibili.com/bili/recom'
+export const live='https://api.live.bilibili.com/room/v1/RoomRecommend/biliIndexRecList'
 //横条广告
 export const livead= 'http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=40'
 

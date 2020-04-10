@@ -45,6 +45,7 @@
     align-content space-between
   .prodli
     position relative
+    z-index 0
     cursor pointer
     overflow hidden
     &:hover

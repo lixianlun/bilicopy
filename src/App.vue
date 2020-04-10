@@ -29,7 +29,7 @@
       }
     },
     mounted(){
-      this.wimh()
+      // this.wimh()
     }
   }
 </script>

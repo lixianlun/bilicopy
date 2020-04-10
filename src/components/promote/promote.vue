@@ -78,7 +78,6 @@
     .proli
       cursor pointer
       font-size 12px
-      transition color .3s
       &:hover
         .pro_p
           color #1890ff
@@ -92,6 +91,7 @@
         display -webkit-box
         -webkit-box-orient vertical
         -webkit-line-clamp 2
+        transition color .3s
       .p_a
         display inline-block
         margin-top 7px

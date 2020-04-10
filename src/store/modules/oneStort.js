@@ -26,7 +26,6 @@ const mutations={
     // state.count++
   },
   [TYPE.SUCCESS](state,list){
-    console.log(list.archives);
      state.onedata=list.archives
   },
   [TYPE.ERROR](state){
