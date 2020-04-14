@@ -1,14 +1,14 @@
 <template>
-  <div id="searchbox" class="searchbox" @click="closesearch($event)">
+  <div id="searchbox" class="searchbox">
     <div class="search_size">
       <form action="" class="nav_search">
-        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" v-model="message" @keydown="getdata($event)" id="search" class="In_search nav_search">
+        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"  v-model="message" @keyup="getdata($event)" id="search" class="In_search nav_search">
         <div class="butback">
           <button type="button" class="search_button" @click="onsearch()"></button>
         </div>
       </form>
-     <ul id="sear_b" class="sear_b">
-        <li class="sear_l" v-for="item in dates" :key="item.index" ><a href="">{{item.value}}</a></li>
+     <ul id="sear_b" class="sear_b" v-show="s_show">
+        <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index" @click="butt(item.value)" ><a href="">{{item.value}}</a></li>
       </ul>
     </div>
   </div>
@@ -24,62 +24,62 @@
         url:'https://s.search.bilibili.com/main/suggest?term=',
         search:'https://search.bilibili.com/all?keyword=',
         lindex:-1,
-
+        s_show:false
       }
     },
     mounted() {
-      // this.getdata();
+      document.addEventListener('click',e=>{
+        if(!this.$refs.input.contains(e.target)){
+          this.none();
+        }
+      })
     },
     methods:{
-      getdata(ev){
-        let arr=Object.values(this.dates);
-        if(arr.length){
-          if(ev.keyCode==40){
-            for(let i=0;i<arr.length;i++){
-              document.getElementsByClassName('sear_l')[i].style.background='white';
-            }
-            this.lindex===arr.length-1?this.lindex=arr.length-1:this.lindex++;
-            document.getElementsByClassName('sear_l')[this.lindex].style.background='rgba(0,0,0,.05)';
-            this.message=document.getElementsByClassName('sear_l')[this.lindex].firstChild.innerText;
-          }else if(ev.keyCode==38){
-            for(let i=0;i<arr.length;i++){
-              document.getElementsByClassName('sear_l')[i].style.background='white';
-            }
-            this.lindex==0?this.lindex=0:this.lindex--;
-            document.getElementsByClassName('sear_l')[this.lindex].style.background='rgba(0,0,0,.05)';
-            this.message=document.getElementsByClassName('sear_l')[this.lindex].firstChild.innerText;
-          }else if(event.keyCode==13){
-            window.open(this.search+this.message)
-          }
-        }else{
-          this.get();
-        }
+      butt(v){
+        window.open(this.search+v)
+        this.none()
       },
       onsearch(){
-        window.open(this.search+this.message)
+        window.open(this.search+this.message);
+        this.none()
       },
-      get(){
+      none(){
+        this.message=="";
+        this.dates=[];
+        this.s_show=false;
+        this.lindex=-1;
+      },
+      getdata(ev){
         let arr=Object.values(this.dates);
-        axios.get(this.url+this.message).then(response=>{
-          if(this.message){
-            document.getElementById('sear_b').style.display='block';
-            this.dates=response.data;
-          }else if(this.message==''){
-            document.getElementById('sear_b').style.display='none';
-            for(let i=0;i<arr.length;i++){
-              document.getElementsByClassName('sear_l')[i].style.background='white';
-            }
-            this.lindex=-1
+        if(ev.keyCode==40){
+          for(let i=0;i<arr.length;i++){
+            this.$refs.searchlist[i].style.background='white';
           }
-        },response=>{
-          console.log("error")
-        })
-      },
-      closesearch(event){
-        console.log(document.querySelector(".searchbox").contains(event.target))
-        var v=document.querySelector(".searchbox");
-        if(!v.contains(event.target)){
-          console.log(this.message);
+          this.lindex===arr.length-1?this.lindex=arr.length-1:this.lindex++;
+          this.$refs.searchlist[this.lindex].style.background='rgba(0,0,0,.05)';
+          this.message=this.$refs.searchlist[this.lindex].firstChild.innerText;
+        }else if(ev.keyCode==38){
+          for(let i=0;i<arr.length;i++){
+            this.$refs.searchlist[i].style.background='white';
+          }
+          this.lindex==0?this.lindex=0:this.lindex--;
+          this.$refs.searchlist[this.lindex].style.background='rgba(0,0,0,.05)';
+          this.message=this.$refs.searchlist[this.lindex].firstChild.innerText;
+          ev.preventDefault();
+        }else if(ev.keyCode==13){
+          window.open(this.search+this.message);
+          this.none()
+        }else{
+          if(this.message==""){
+            this.none()
+          }else{
+            axios.get(this.url+this.message).then(response=>{
+              this.s_show=true
+              this.dates=response.data;
+            },response=>{
+              console.log("error")
+            })
+          }
         }
       }
     }
@@ -131,7 +131,7 @@
     background white
     padding 10px 0
     width 100%
-    display none
+    // display none
     position absolute
     li
       line-height 32px
