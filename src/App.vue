@@ -4,6 +4,7 @@
     <navul></navul>
     <banner></banner>
     <promote></promote>
+    <live></live>
   </div>
 </template>
 
@@ -12,13 +13,15 @@
   import navul from "./components/nav/nav.vue"
   import banner from "./components/banner/banner.vue"
   import promote from "./components/promote/promote.vue"
+  import live from "./components/live/livaad.vue"
   export default {
     name: 'App',
     components: {
       biliheader,
       navul,
       banner,
-      promote
+      promote,
+      live
     },
     methods:{
       wimh(){
@@ -71,8 +74,12 @@
       height 96px
     .extension
       width 710px
+    .up_w
+      width 128px
     .gg-window
       width 265px
+    .l-txt
+      width 102px
   @media screen and (min-width 1438px)
     .bannerwh
       width 550px
@@ -86,6 +93,10 @@
       height 116px
     .extension
       width 854px
+    .up_w
+      width 158px
     .gg-window
       width 320px
+    .l-txt
+      width 158px
 </style>

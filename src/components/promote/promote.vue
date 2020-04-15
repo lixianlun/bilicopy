@@ -40,19 +40,21 @@
 
 <style lang="stylus">
   .promt
-    margin 30px auto
+    margin 0 auto
+    margin-bottom 50px
   .promoteright
     .onlinelist
       text-align center
-      padding 10px 0
+      padding 8px 0
       background #f4f4f4
       border 1px solid #E7E7E7
       cursor pointer
+      font-size 14px
       &:hover
         color #1890FF
     img
       width 100%
-      margin-top 10px
+      margin-top 17px
       border-radius 3px
   .pro_iconf
     width 40px
@@ -69,6 +71,7 @@
   .promo_name_side
     margin-left 25px
     font-size 12px
+    color #7E8C8D
     &:hover
       color #1890ff
   .proul
