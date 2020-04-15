@@ -122,19 +122,86 @@
           <li class="side-list">关注的直播</li>
           <li class="side-list">为你推荐</li>
         </ul>
-        <div class="side-content">
-          <a class="sc-item" href="">
-            <span class="ls-number">1</span>
-            <img src="../../assets/logo.png" alt="">
-            <div class="sc-txt l-txt">
-              <p>荣耀手机</p>
-              <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+        <ul>
+          <li class="side-content">
+            <a class="sc-item" href="">
+              <span class="ls-number">1</span>
+              <img src="../../assets/logo.png" alt="">
+              <div class="sc-txt l-txt">
+                <p>荣耀手机</p>
+                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+              </div>
+            </a>
+            <div>
+              <p class="txt-p txt-c">{{trannum(143125)}}</p>
             </div>
-          </a>
-          <div>
-            <p class="txt-p txt-c">{{trannum(143125)}}</p>
-          </div>
-        </div>
+          </li>
+          <li class="side-content">
+            <a class="sc-item" href="">
+              <span class="ls-number">1</span>
+              <img src="../../assets/logo.png" alt="">
+              <div class="sc-txt l-txt">
+                <p>荣耀手机</p>
+                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+              </div>
+            </a>
+            <div>
+              <p class="txt-p txt-c">{{trannum(143125)}}</p>
+            </div>
+          </li>
+          <li class="side-content">
+            <a class="sc-item" href="">
+              <span class="ls-number">1</span>
+              <img src="../../assets/logo.png" alt="">
+              <div class="sc-txt l-txt">
+                <p>荣耀手机</p>
+                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+              </div>
+            </a>
+            <div>
+              <p class="txt-p txt-c">{{trannum(143125)}}</p>
+            </div>
+          </li>
+          <li class="side-content">
+            <a class="sc-item" href="">
+              <span class="ls-number">1</span>
+              <img src="../../assets/logo.png" alt="">
+              <div class="sc-txt l-txt">
+                <p>荣耀手机</p>
+                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+              </div>
+            </a>
+            <div>
+              <p class="txt-p txt-c">{{trannum(143125)}}</p>
+            </div>
+          </li>
+          <li class="side-content">
+            <a class="sc-item" href="">
+              <span class="ls-number">1</span>
+              <img src="../../assets/logo.png" alt="">
+              <div class="sc-txt l-txt">
+                <p>荣耀手机</p>
+                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+              </div>
+            </a>
+            <div>
+              <p class="txt-p txt-c">{{trannum(143125)}}</p>
+            </div>
+          </li>
+          <li class="side-content">
+            <a class="sc-item" href="">
+              <span class="ls-number">1</span>
+              <img src="../../assets/logo.png" alt="">
+              <div class="sc-txt l-txt">
+                <p>荣耀手机</p>
+                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+              </div>
+            </a>
+            <div>
+              <p class="txt-p txt-c">{{trannum(143125)}}</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -170,12 +237,13 @@
       width 16px
       height 16px
       margin-right 3px
-      background  url(../../assets/icons.png) -473px -854px no-repeat
+      background  url(../../assets/icons.png) -473px -407px no-repeat
       display inline-block
   .side-content
     display flex
     align-items center
     justify-content space-between
+    margin-bottom 16px
     .sc-item
       display flex
       align-items center
@@ -205,6 +273,7 @@
     display flex
     height 36px
     align-items center
+    margin-bottom 10px
     .side-list
       height 22px
       line-height 18px
