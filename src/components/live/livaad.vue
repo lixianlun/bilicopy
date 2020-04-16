@@ -46,7 +46,8 @@
         <div class="indeclass">
           <p class="ls-uname">没有数据(-_-#)</p>
         </div>
-        <div class="indeclass">
+        <div class="indeclass gg-window" @click="enter($event,live.url)">
+          <img style="width: 100%;cursor: pointer;" :src="live.pic" alt="">
         </div>
       </div>
     </div>
@@ -107,6 +108,7 @@
   .ls-uname
     margin-bottom 3px
     font-size 14px
+    transition color .3s ease
   .txt-p
     font-size 12px
   .txt-c
@@ -126,6 +128,10 @@
     align-items center
     justify-content space-between
     margin-bottom 16px
+    transition color .3s ease
+    &:hover
+      .ls-uname
+        color #00A1D6
     .sc-item
       display flex
       align-items center
@@ -215,6 +221,9 @@
       justify-content space-between
       .liveli
         cursor pointer
+        transition color .3s ease
+        &:hover
+          color #00A1D6
     .live_name_side
       margin-left 25px
       font-size 12px

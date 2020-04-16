@@ -31,7 +31,7 @@ const mutations={
   },
   [TYPE.LIVE_SUCCESS](state,livelist){
      state.ranking=livelist.ranking
-     state.live=livelist
+     state.live=livelist.preview[0]
      state.livedata=livelist.recommend
      state.livetopad=livelist.topad.data[40][0]
   },
