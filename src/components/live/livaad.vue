@@ -1,230 +1,112 @@
 <template>
   <div>
     <a class="ad b-warp" href="">
-      <img class="bnimg" src="../../assets/5d9d0c8d40cccae09f7fe8eaf3512684.jpg" alt="">
+      <img class="bnimg" :src="livetopad.pic" alt="">
     </a>
     <div class="live b-warp">
       <div class="liveleft">
         <span class="live_iconf"></span>
         <a class="live_name">直播</a>
-        <a href="" class="live_name_side">当前共有 18184 个在线直播</a>
+        <a href="" class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
         <ul class="liveul extension">
-            <li class="liveli video-card-common">
+            <li class="liveli video-card-common" v-for="(item,index) in livedata.slice(0,8)" @click="enter($event,item.link)" :key='index'>
                 <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
+                  <img class="bnimg" :src="item.pic" alt="">
                 </div>
                 <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
+                  <img class="up_icon" :src="item.face" alt="">
                   <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
+                    <p class="live_name">{{item.uname}}</p>
+                    <p class="live_title">{{item.title}}</p>
+                    <p class="live_type">{{item.area_v2_name}}</p>
                   </div>
                 </div>
             </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-            <li class="liveli video-card-common">
-                <div class="live_pic">
-                  <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-                </div>
-                <div class="live_up">
-                  <img class="up_icon" src="../../assets/logo.png" alt="">
-                  <div class="live_content up_w">
-                    <p class="live_name">哔哩哔哩活动</p>
-                    <p class="live_title">云过泼水节——西双版纳亚洲象泼水庆傣历新年</p>
-                    <p class="live_type">户外</p>
-                  </div>
-                </div>
-            </li>
-
         </ul>
       </div>
       <div class="gg-window">
-        <ul class="live_side_ac ">
-          <li class="side-list">直播排行</li>
-          <li class="side-list">关注的直播</li>
-          <li class="side-list">为你推荐</li>
+        <ul class="live_side_ac">
+          <li class="side-list" :class="{active:num==index}" @click="change(index)" v-for="(item,index) in sidelist" :key='index'>{{item.title}}</li>
         </ul>
-        <ul>
-          <li class="side-content">
+        <ul class="indeclass active">
+          <li class="side-content" v-for="(item,index) in ranking" :key="index" @click="enter($event,item.link)" >
             <a class="sc-item" href="">
-              <span class="ls-number">1</span>
-              <img src="../../assets/logo.png" alt="">
+              <span class="ls-number">{{index+1}}</span>
+              <img :src="item.face" alt="">
               <div class="sc-txt l-txt">
-                <p>荣耀手机</p>
-                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
+                <p class="ls-uname">{{item.uname}}</p>
+                <p class="txt-p">{{item.title}}</p>
               </div>
             </a>
             <div>
-              <p class="txt-p txt-c">{{trannum(143125)}}</p>
-            </div>
-          </li>
-          <li class="side-content">
-            <a class="sc-item" href="">
-              <span class="ls-number">1</span>
-              <img src="../../assets/logo.png" alt="">
-              <div class="sc-txt l-txt">
-                <p>荣耀手机</p>
-                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
-              </div>
-            </a>
-            <div>
-              <p class="txt-p txt-c">{{trannum(143125)}}</p>
-            </div>
-          </li>
-          <li class="side-content">
-            <a class="sc-item" href="">
-              <span class="ls-number">1</span>
-              <img src="../../assets/logo.png" alt="">
-              <div class="sc-txt l-txt">
-                <p>荣耀手机</p>
-                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
-              </div>
-            </a>
-            <div>
-              <p class="txt-p txt-c">{{trannum(143125)}}</p>
-            </div>
-          </li>
-          <li class="side-content">
-            <a class="sc-item" href="">
-              <span class="ls-number">1</span>
-              <img src="../../assets/logo.png" alt="">
-              <div class="sc-txt l-txt">
-                <p>荣耀手机</p>
-                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
-              </div>
-            </a>
-            <div>
-              <p class="txt-p txt-c">{{trannum(143125)}}</p>
-            </div>
-          </li>
-          <li class="side-content">
-            <a class="sc-item" href="">
-              <span class="ls-number">1</span>
-              <img src="../../assets/logo.png" alt="">
-              <div class="sc-txt l-txt">
-                <p>荣耀手机</p>
-                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
-              </div>
-            </a>
-            <div>
-              <p class="txt-p txt-c">{{trannum(143125)}}</p>
-            </div>
-          </li>
-          <li class="side-content">
-            <a class="sc-item" href="">
-              <span class="ls-number">1</span>
-              <img src="../../assets/logo.png" alt="">
-              <div class="sc-txt l-txt">
-                <p>荣耀手机</p>
-                <p class="txt-p">荣耀30系列发布会暨2020荣耀春夏秀</p>
-              </div>
-            </a>
-            <div>
-              <p class="txt-p txt-c">{{trannum(143125)}}</p>
+              <p class="txt-p txt-c">{{trannum(item.online)}}</p>
             </div>
           </li>
         </ul>
+        <div class="indeclass">
+          <p class="ls-uname">没有数据(-_-#)</p>
+        </div>
+        <div class="indeclass">
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
   export default{
     data(){
       return{
+        num:0,
+        sidelist:[
+          {title:'直播排行'},{title:'关注的直播'},{title:'为你推荐'}
+        ]
       }
     },
     methods:{
       trannum(nu){
-        return nu>9999?(nu/10000).toFixed(1)+'万':nu.toString()
+        return nu>9999?(nu/10000).toFixed(1)+'万':nu
+      },
+      enter(ev,url){
+        ev.preventDefault();
+        window.open(url)
+      },
+      change(index){
+        this.num=index;
+        let car = document.getElementsByClassName('indeclass');
+        for(let i=0;i<car.length;i++){
+          car[i].style.display='none';
+        }
+        car[this.num].style.display='block';
       }
     },
-    mounted(){
-      this.trannum()
-    }
+    computed: {
+      ...mapGetters([
+        'livedata',
+        'livetopad',
+        'live',
+        'ranking'
+      ])
+    },
+    mounted() {
+      this.$store.dispatch('livedata')
+    },
   }
 </script>
 
 <style lang="stylus">
+  .indeclass
+    display none
+    .side-content:nth-child(-n+3)
+      .ls-number
+        color white
+        background #00A1D6
+  .indeclass.active
+    display block
+  .ls-uname
+    margin-bottom 3px
+    font-size 14px
   .txt-p
     font-size 12px
   .txt-c
@@ -253,17 +135,15 @@
           white-space nowrap
           overflow hidden
           text-overflow ellipsis
-          font-size 14px
       .ls-number
         width 18px
         height 18px
         line-height 18px
-        background #00A1D6
-        color white
         border-radius 3px
         text-align center
         font-size 14px
         margin-right 12px
+        color #999
       img
         width 44px
         height 44px
@@ -283,9 +163,9 @@
       cursor pointer
       white-space nowrap
       border-bottom 1px solid transparent
-      &:hover
-        color #00a1d6
-        border-bottom 1px solid #00a1d6
+    .side-list.active
+      color #00a1d6
+      border-bottom 1px solid #00a1d6
   .live_pic
     width 100%
     height 96px
@@ -300,6 +180,9 @@
       font-size 12px
       .live_name
         font-size 14px
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
       .live_title
         width 100%
         white-space nowrap

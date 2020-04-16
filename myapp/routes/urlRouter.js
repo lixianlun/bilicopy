@@ -6,7 +6,8 @@ import {
   promoteAd,
   headbackground,
   oneday,
-  livead
+  live,
+  livetopad
 } from './urlconfig'
 
 const router = Router()
@@ -29,8 +30,10 @@ router.get('/one', async (ctx, next) => {
   let response = await axios.get(oneday)
   ctx.body = response.data.data
 })
-router.get('/livead', async (ctx, next) => {
-  let response = await axios.get(livead)
+router.get('/live', async (ctx, next) => {
+  let response = await axios.get(live)
+  let ltAD = await axios.get(livetopad)
+  response.data.data.topad=ltAD.data
   ctx.body = response.data.data
 })
 export default router

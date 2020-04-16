@@ -27,7 +27,7 @@ export const promoteAd = 'http://api.bilibili.com/x/web-show/res/loc?pf=0&id=29'
 export const liveXhr = 'http://api.live.bilibili.com/bili/recom'
 export const live='https://api.live.bilibili.com/room/v1/RoomRecommend/biliIndexRecList'
 //横条广告
-export const livead= 'http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=40'
+export const livetopad= 'http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=40'
 
 // 轮播图右边总排行
 // 3日排行

@@ -18,7 +18,6 @@ const actions= {
       commit(TYPE.BANNER_SUCCESS,response)
     },(error)=>{
       commit(TYPE.BANNER_ERROR)
-      console.log(rootState.requesting)
     })
   }
 }

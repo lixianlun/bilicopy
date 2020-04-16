@@ -31,3 +31,10 @@ export const oneApi={
       })
     }
 }
+export const liveApi={
+    list(){
+      return axios.get(url.live).then((response)=>{
+        return response.data
+      })
+    }
+}

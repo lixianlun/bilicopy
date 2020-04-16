@@ -5,6 +5,7 @@ import bannerStore from './modules/bannerStore.js'
 import promoteStore from './modules/promoteStore.js'
 import headStore from './modules/headpartStore.js'
 import oneStore from './modules/oneStort.js'
+import liveStore from './modules/liveStort.js'
 Vue.use(Vuex)
 
 
@@ -23,6 +24,7 @@ export default new Vuex.Store({
     bannerStore,
     promoteStore,
     headStore,
-    oneStore
+    oneStore,
+    liveStore
   }
 });

@@ -6,7 +6,7 @@
          <div class="backbetween video-card-common">
            <p class="br_cover">{{item.title}}</p>
            <p class="br_p br_m" href="">{{item.owner.name}}</p>
-           <p class="br_p br_b">5.5万播放量</p>
+           <p class="br_p br_b">{{trannum(item.stat.view)}} 播放量</p>
          </div>
          <p class="bew_corver"></p>
        </a>
@@ -29,10 +29,12 @@
       ])
     },
     mounted() {
-      // console.log( document.body.clientWidth)
       this.$store.dispatch('onedata')
     },
     methods:{
+      trannum(nu){
+        return nu>9999?(nu/10000).toFixed(1)+'万':nu
+      },
     }
   }
 </script>

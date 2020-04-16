@@ -13,3 +13,7 @@ export const HEAD_ERROR = 'HEAD_ERROR'
 export const REQUEST = 'REQUEST'
 export const SUCCESS = 'SUCCESS'
 export const ERROR = 'ERROR'
+
+export const LIVE_REQUEST = 'LIVE_REQUEST'
+export const LIVE_SUCCESS = 'LIVE_SUCCESS'
+export const LIVE_ERROR = 'LIVE_ERROR'
