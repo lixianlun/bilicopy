@@ -5,9 +5,19 @@
     </a>
     <div class="live b-warp">
       <div class="liveleft">
-        <span class="live_iconf"></span>
-        <a class="live_name">直播</a>
-        <a href="" class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
+        <header style="display: flex;justify-content: space-between;align-items: center;font-size: 12px;">
+          <div>
+            <span class="live_iconf"></span>
+            <a class="live_name">直播</a>
+            <a href="" class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
+          </div>
+          <div style="display: flex;">
+            <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;">
+              <a class="reloadac" href="">换一换</a>
+            </div>
+            <a style="display: inline-block;margin-left: 15px;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="">更多 ></a>
+          </div>
+        </header>
         <ul class="liveul extension">
             <li class="liveli video-card-common" v-for="(item,index) in livedata.slice(0,8)" @click="enter($event,item.link)" :key='index'>
                 <div class="live_pic">
@@ -28,7 +38,7 @@
         <ul class="live_side_ac">
           <li class="side-list" :class="{active:num==index}" @click="change(index)" v-for="(item,index) in sidelist" :key='index'>{{item.title}}</li>
         </ul>
-        <ul class="indeclass active">
+        <ul class="indeclass ">
           <li class="side-content" v-for="(item,index) in ranking" :key="index" @click="enter($event,item.link)" >
             <a class="sc-item" href="">
               <span class="ls-number">{{index+1}}</span>
@@ -46,8 +56,8 @@
         <div class="indeclass">
           <p class="ls-uname">没有数据(-_-#)</p>
         </div>
-        <div class="indeclass gg-window" @click="enter($event,live.url)">
-          <img style="width: 100%;cursor: pointer;" :src="live.pic" alt="">
+        <div class="indeclass gg-window active" @click="enter($event,live.url)">
+          <img style="width: 100%;cursor: pointer;" :src="preview.pic" alt="">
         </div>
       </div>
     </div>
@@ -59,7 +69,7 @@
   export default{
     data(){
       return{
-        num:0,
+        num:2,
         sidelist:[
           {title:'直播排行'},{title:'关注的直播'},{title:'为你推荐'}
         ]
@@ -87,7 +97,8 @@
         'livedata',
         'livetopad',
         'live',
-        'ranking'
+        'ranking',
+        'preview'
       ])
     },
     mounted() {
@@ -97,6 +108,24 @@
 </script>
 
 <style lang="stylus">
+  .reload
+    cursor pointer
+    transition background .3s ease
+    &:hover
+      background #f4f4f4
+      .reloadac
+        &:before
+          transform rotate(-280deg)
+  .reloadac
+    &:before
+      content ''
+      width 14px
+      height 14px
+      vertical-align middle
+      display inline-block
+      margin-right 4px
+      background url(../../assets/icons.png) -474px -88px no-repeat
+      transition transform .4s ease
   .indeclass
     display none
     .side-content:nth-child(-n+3)
@@ -159,6 +188,7 @@
     display flex
     height 36px
     align-items center
+    margin-top 3px
     margin-bottom 10px
     .side-list
       height 22px
