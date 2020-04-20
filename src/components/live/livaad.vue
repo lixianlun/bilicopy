@@ -6,16 +6,16 @@
     <div class="live b-warp">
       <div class="liveleft">
         <header style="display: flex;justify-content: space-between;align-items: center;font-size: 12px;">
-          <div>
+          <div style="display: flex;align-items: center;">
             <span class="live_iconf"></span>
-            <a class="live_name">直播</a>
-            <a href="" class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
+            <a style="font-size: 20px;margin-left: 10px;" class="live_open live_name" href="https://live.bilibili.com/" target="_blank">正在直播</a>
+            <a class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
           </div>
           <div style="display: flex;">
             <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;">
               <a class="reloadac" style="white-space: nowrap;" href="">换一换</a>
             </div>
-            <a style="display: inline-block;margin-left: 15px;white-space: nowrap;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="">更多 ></a>
+            <a style="line-height: 15px;inline-block;margin-left: 15px;white-space: nowrap;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="">更多 ></a>
           </div>
         </header>
         <ul class="liveul extension">
@@ -108,6 +108,10 @@
 </script>
 
 <style lang="stylus">
+  .live_open
+    transition color .3s ease
+    &:hover
+      color #1890FF
   .reload
     cursor pointer
     transition background .3s ease
@@ -188,8 +192,7 @@
     display flex
     height 36px
     align-items center
-    margin-top 3px
-    margin-bottom 10px
+    margin-bottom 13px
     .side-list
       height 22px
       line-height 18px
@@ -208,7 +211,6 @@
     display block
     margin-bottom 10px
   .live_up
-    // display inline-block
     display flex
     line-height 16px
     justify-content space-between
@@ -247,7 +249,6 @@
       margin-top 15px
       display flex
       flex-wrap wrap
-      // align-content space-between
       justify-content space-between
       .liveli
         cursor pointer
