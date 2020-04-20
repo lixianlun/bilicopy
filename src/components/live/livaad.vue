@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a class="ad b-warp" href="">
+    <a class="ad b-warp" :href="livetopad.url" target="_blank">
       <img class="bnimg" :src="livetopad.pic" alt="">
     </a>
     <div class="live b-warp">
@@ -13,9 +13,9 @@
           </div>
           <div style="display: flex;">
             <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;">
-              <a class="reloadac" href="">换一换</a>
+              <a class="reloadac" style="white-space: nowrap;" href="">换一换</a>
             </div>
-            <a style="display: inline-block;margin-left: 15px;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="">更多 ></a>
+            <a style="display: inline-block;margin-left: 15px;white-space: nowrap;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="">更多 ></a>
           </div>
         </header>
         <ul class="liveul extension">
