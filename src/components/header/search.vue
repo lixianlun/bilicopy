@@ -8,7 +8,7 @@
         </div>
       </form>
      <ul id="sear_b" class="sear_b" v-show="s_show">
-        <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index" @click="butt(item.value)" ><a href="">{{item.value}}</a></li>
+        <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index" @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
       </ul>
     </div>
   </div>
@@ -35,7 +35,8 @@
       })
     },
     methods:{
-      butt(v){
+      butt(ev,v){
+        ev.preventDefault();
         window.open(this.search+v)
         this.none()
       },
@@ -68,6 +69,7 @@
           ev.preventDefault();
         }else if(ev.keyCode==13){
           window.open(this.search+this.message);
+          ev.preventDefault();
           this.none()
         }else{
           if(this.message==""){
