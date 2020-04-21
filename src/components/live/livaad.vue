@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a class="ad b-warp" :href="livetopad.url" target="_blank">
+    <a class="ad b-warp" v-if="livetopad" :href="livetopad.url" target="_blank">
       <img class="bnimg" :src="livetopad.pic" alt="">
     </a>
     <div class="live b-warp">
@@ -12,10 +12,10 @@
             <a class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
           </div>
           <div style="display: flex;">
-            <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;">
-              <a class="reloadac" style="white-space: nowrap;" href="">换一换</a>
+            <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;" @click="reload()">
+              <a class="reloadac" style="white-space: nowrap;" >换一换</a>
             </div>
-            <a style="line-height: 15px;inline-block;margin-left: 15px;white-space: nowrap;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="">更多 ></a>
+            <a class="live_more" style="line-height: 15px;inline-block;margin-left: 15px;white-space: nowrap;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="https://live.bilibili.com/" target="_blank" >更多 ></a>
           </div>
         </header>
         <ul class="liveul extension">
@@ -76,6 +76,9 @@
       }
     },
     methods:{
+      reload(){
+        this.$store.dispatch('livedata')
+      },
       trannum(nu){
         return nu>9999?(nu/10000).toFixed(1)+'万':nu
       },
@@ -108,6 +111,10 @@
 </script>
 
 <style lang="stylus">
+  .live_more
+    transition background.3s ease
+    &:hover
+      background #f4f4f4
   .live_open
     transition color .3s ease
     &:hover

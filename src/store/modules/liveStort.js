@@ -26,7 +26,6 @@ const actions={
       commit(TYPE.LIVE_ERROR)
     })
   }
-
 }
 const mutations={
   [TYPE.LIVE_REQUEST](state){
@@ -36,7 +35,7 @@ const mutations={
      state.preview=livelist.preview[0]
      state.live=livelist
      state.livedata=livelist.recommend
-     state.livetopad=livelist.topad.data[40][0]
+     state.livetopad=livelist.topad.data[40]
   },
   [TYPE.LIVE_ERROR](state){
 

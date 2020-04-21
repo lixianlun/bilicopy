@@ -138,6 +138,7 @@
     content ""
     width 18px
     height 18px
+    margin-right 3px
     display inline-block
     vertical-align middle
     background url(../../assets/icons.png) no-repeat

@@ -10,9 +10,9 @@
     <ul class="nvbox">
       <li class="nv_for" v-for="(item,index) in classify" :key="index" @mouseover="over(item)" @mouseout="leave(item)">
         <span class="nav_abso" :style="{width:item.width+'px'}" :class="{open:item.active}" @mouseover="over(item)" @mouseout="leave(item)">
-          <a v-for="(list,index) in item.content" href="" :key="index" >{{list.list}}</a>
+          <a v-for="(list,index) in item.content" :href="list.url" target="_blank" :key="index" >{{list.list}}</a>
         </span>
-        <a class="nav_a" href="">{{item.title}}<em class="em">{{num}}</em></a>
+        <a class="nav_a" >{{item.title}}<em class="em">{{count(item.count)}}</em></a>
       </li>
     </ul>
     <span class="nv_line"></span>
@@ -28,46 +28,48 @@
     },
     data() {
       return {
-        num:"999+",
         sta:[{goal:'专栏'},{goal:'直播'},{goal:'活动'},{goal:'专题'},{goal:'小黑屋'},{goal:'音乐Plus'}],
         active:[{col:'state',goal:'主页'},{col:'ranking',goal:'动态'},{col:'home',goal:'排行榜'}],
         classify: [{
-            title: "动画",time:null,active:false,width:160,content:[{list:'MAD·AMV'},{list:'MMD·3D'},{list:'短片·手书·配音'},{list:'特摄'},{list:'综合'}]
+            title: "动画",count:981,time:null,active:false,width:160,content:[{list:'MAD·AMV',url:'https://www.bilibili.com/v/douga/mad#/'},{list:'MMD·3D',url:'https://www.bilibili.com/v/douga/mmd/#/'},{list:'短片·手书·配音',url:'https://www.bilibili.com/v/douga/voice/#/'},{list:'特摄',url:'https://www.bilibili.com/v/douga/tokusatsu/#/'},{list:'综合',url:'https://www.bilibili.com/v/douga/other/#/'}]
           },{
-            title: "番剧",time:null,active:false,width:172,content:[{list:'连载动画'},{list:'完结动画'},{list:'咨询'},{list:'官方延伸'},{list:'新番时间表'},{list:'番剧索引'}]
+            title: "番剧",count:1233,count:1233,time:null,active:false,width:172,content:[{list:'连载动画'},{list:'完结动画'},{list:'咨询'},{list:'官方延伸'},{list:'新番时间表'},{list:'番剧索引'}]
           },{
-            title: "音乐",time:null,active:false,width:268,content:[{list:'原创音乐'},{list:'翻唱'},{list:'VOCALOID·UTAU'},{list:'电音'},{list:'演奏'},{list:'MV'},{list:'音乐现场'},{list:'音乐综合'},{list:'音频'}]
+            title: "音乐",count:753,time:null,active:false,width:268,content:[{list:'原创音乐'},{list:'翻唱'},{list:'VOCALOID·UTAU'},{list:'电音'},{list:'演奏'},{list:'MV'},{list:'音乐现场'},{list:'音乐综合'},{list:'音频'}]
           },{
-            title: "国创",time:null,active:false,width:214,content:[{list:'国产动画'},{list:'国产原创相关'},{list:'布袋戏'},{list:'官方延伸'},{list:'资讯'},{list:'新番时间表'},{list:'国产动画索引'}]
+            title: "国创",count:456,time:null,active:false,width:214,content:[{list:'国产动画'},{list:'国产原创相关'},{list:'布袋戏'},{list:'官方延伸'},{list:'资讯'},{list:'新番时间表'},{list:'国产动画索引'}]
           }, {
-            title: "舞蹈",time:null,active:false,width:172,content:[{list:'宅舞'},{list:'街舞'},{list:'明星舞蹈'},{list:'中国舞'},{list:'舞蹈综合'},{list:'舞蹈教程'}]
+            title: "舞蹈",count:105,time:null,active:false,width:172,content:[{list:'宅舞'},{list:'街舞'},{list:'明星舞蹈'},{list:'中国舞'},{list:'舞蹈综合'},{list:'舞蹈教程'}]
           },{
-            title: "游戏",time:null,active:false,width:240,content:[{list:'单机游戏'},{list:'电子竞技'},{list:'手机游戏'},{list:'网络游戏'},{list:'桌游棋牌'},{list:'GMV'},{list:'音游'},{list:'Mugen'},{list:'游戏赛事'}]
+            title: "游戏",count:1233,time:null,active:false,width:240,content:[{list:'单机游戏'},{list:'电子竞技'},{list:'手机游戏'},{list:'网络游戏'},{list:'桌游棋牌'},{list:'GMV'},{list:'音游'},{list:'Mugen'},{list:'游戏赛事'}]
           },{
-            title: "科技",time:null,active:false,width:172,content:[{list:'趣味科普人文'},{list:'野生技术协会'},{list:'演讲·公开课'},{list:'星海'},{list:'机械'},{list:'汽车'}]
+            title: "科技",count:764,time:null,active:false,width:172,content:[{list:'趣味科普人文'},{list:'野生技术协会'},{list:'演讲·公开课'},{list:'星海'},{list:'机械'},{list:'汽车'}]
           },{
-            title: "数码",time:null,active:false,width:80,content:[{list:'手机平板'},{list:'电脑装机'},{list:'摄影摄像'},{list:'影音智能'}]
+            title: "数码",count:201,time:null,active:false,width:80,content:[{list:'手机平板'},{list:'电脑装机'},{list:'摄影摄像'},{list:'影音智能'}]
           },{
-            title: "生活",time:null,active:false,width:124,content:[{list:'搞笑'},{list:'日常'},{list:'美食圈'},{list:'动物圈'},{list:'手工'},{list:'绘画'},{list:'运动'},{list:'其他'}]
+            title: "生活",count:916,time:null,active:false,width:124,content:[{list:'搞笑'},{list:'日常'},{list:'美食圈'},{list:'动物圈'},{list:'手工'},{list:'绘画'},{list:'运动'},{list:'其他'}]
           },{
-            title: "鬼畜",time:null,active:false,width:118,content:[{list:'鬼畜调教'},{list:'音MAD'},{list:'人力VOCALOID'},{list:'教程演示'}]
+            title: "鬼畜",count:425,time:null,active:false,width:118,content:[{list:'鬼畜调教'},{list:'音MAD'},{list:'人力VOCALOID'},{list:'教程演示'}]
           },{
-            title: "时尚",time:null,active:false,width:124,content:[{list:'美妆'},{list:'服饰'},{list:'健身'},{list:'T台'},{list:'风尚标'}]
+            title: "时尚",count:340,time:null,active:false,width:124,content:[{list:'美妆'},{list:'服饰'},{list:'健身'},{list:'T台'},{list:'风尚标'}]
           },{
-            title: "广告",time:null,active:false
+            title: "广告",count:9,time:null,active:false
           },{
-            title: "娱乐",time:null,active:false,width:90,content:[{list:'综艺'},{list:'明星'},{list:'Korea相关'}]
+            title: "娱乐",count:1233,time:null,active:false,width:90,content:[{list:'综艺'},{list:'明星'},{list:'Korea相关'}]
           },{
-            title: "影视",time:null,active:false,width:84,content:[{list:'影视杂谈'},{list:'影视剪辑'},{list:'短片'},{list:'预告·资讯'}]
+            title: "影视",count:722,time:null,active:false,width:84,content:[{list:'影视杂谈'},{list:'影视剪辑'},{list:'短片'},{list:'预告·资讯'}]
           },{
-            title: "放映厅",time:null,active:false,width:64,content:[{list:'纪录片'},{list:'电影'},{list:'电视剧'}]
+            title: "放映厅",count:88,time:null,active:false,width:64,content:[{list:'纪录片'},{list:'电影'},{list:'电视剧'}]
           },{
-            title: "更多",time:null,active:false,width:162,content:[{list:'搞笑'},{list:'动物圈'},{list:'美食圈'},{list:'单机游戏'},{list:'VLOG'}]
+            title: "更多",count:42,time:null,active:false,width:162,content:[{list:'搞笑'},{list:'动物圈'},{list:'美食圈'},{list:'单机游戏'},{list:'VLOG'}]
           }
         ]
       }
     },
     methods:{
+      count(a){
+        return a>999?"999+":a
+      },
       leave(a){
         clearInterval(a.time)
         a.time=setTimeout(()=>{
@@ -154,18 +156,18 @@
       .nav_abso.bottom
       .nav_abso.open
         top 40px
-        left 15px
+        left 25px
       .nav_abso
         box-shadow 0px 2px 7px 0 rgba(0,0,0,.1)
         top 30px
-        left 15px
+        left 25px
         &:after
           content ''
           width 8px
           height 8px
           background white
           top -3.5px
-          left 15px
+          left 2px
           transform rotate(-45deg)
           position absolute
           z-index 1001
@@ -181,7 +183,7 @@
           height 8px
           background white
           top -3.5px
-          left 15px
+          left 1px
           transform rotate(-45deg)
           position absolute
           z-index 1001

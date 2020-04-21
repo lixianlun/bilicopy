@@ -2,7 +2,7 @@
   <div id="searchbox" class="searchbox">
     <div class="search_size">
       <form action="" class="nav_search">
-        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"  v-model="message" @keyup="getdata($event)" id="search" class="In_search nav_search">
+        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"  v-model="message" @keydown="getdata($event)" id="search" class="In_search nav_search">
         <div class="butback">
           <button type="button" class="search_button" @click="onsearch()"></button>
         </div>

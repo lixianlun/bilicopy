@@ -6,16 +6,16 @@
       <a href="" class="promo_name_side"></a>
       <ul class="proul extension">
           <li class="proli video-card-common" v-for="item in promotelist.slice(0,4)" :key="item.index">
-            <a :href="item.url" target='_blank'>
+            <a class="pro_a" :href="item.url" target='_blank'>
               <img class="bnimg" :src="item.pic" alt="">
               <p class="pro_p">{{item.name}}</p>
-              <p class="p_a" :href="item.url">{{item.archive.owner.name}}</p>
             </a>
+            <p class="p_a" @click="open(item.archive.owner.mid)">{{item.archive.owner.name}}</p>
           </li>
       </ul>
     </div>
     <div class="promoteright gg-window">
-      <p class="onlinelist gg-window">在线列表</p>
+      <a class="onlinelist gg-window" href="https://www.bilibili.com/video/online.html?spm_id_from=333.851.b_7265706f7274466972737432.16" target="_black">在线列表</a>
       <a :href="promoteAd.url" target="_blank">
         <img class="" :src="promoteAd.pic" alt="">
       </a>
@@ -32,6 +32,11 @@
        'promoteAd'
      ])
    },
+   methods:{
+     open(url){
+       window.open('https://space.bilibili.com/'+url)
+     }
+   },
    mounted(){
      this.$store.dispatch('promote')
    }
@@ -44,6 +49,7 @@
     margin-bottom 50px
   .promoteright
     .onlinelist
+      display inline-block
       text-align center
       padding 8px 0
       background #f4f4f4
@@ -79,11 +85,12 @@
     display flex
     justify-content space-between
     .proli
-      cursor pointer
       font-size 12px
-      &:hover
-        .pro_p
-          color #1890ff
+      .pro_a
+        cursor pointer
+        &:hover
+          .pro_p
+            color #1890ff
       .pro_p
         height 40px
         margin-top 8px
@@ -100,4 +107,8 @@
         margin-top 7px
         color #999
         font-size 12px
+        cursor pointer
+        transition color .3s ease
+        &:hover
+          color #00A1D6
 </style>
