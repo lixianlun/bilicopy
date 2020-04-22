@@ -33,9 +33,9 @@
         classify: [{
             title: "动画",count:981,time:null,active:false,width:160,content:[{list:'MAD·AMV',url:'https://www.bilibili.com/v/douga/mad#/'},{list:'MMD·3D',url:'https://www.bilibili.com/v/douga/mmd/#/'},{list:'短片·手书·配音',url:'https://www.bilibili.com/v/douga/voice/#/'},{list:'特摄',url:'https://www.bilibili.com/v/douga/tokusatsu/#/'},{list:'综合',url:'https://www.bilibili.com/v/douga/other/#/'}]
           },{
-            title: "番剧",count:1233,count:1233,time:null,active:false,width:172,content:[{list:'连载动画'},{list:'完结动画'},{list:'咨询'},{list:'官方延伸'},{list:'新番时间表'},{list:'番剧索引'}]
+            title: "番剧",count:1233,count:1233,time:null,active:false,width:172,content:[{list:'连载动画',url:'https://www.bilibili.com/v/anime/serial/#/'},{list:'完结动画',url:'https://www.bilibili.com/v/anime/finish/#/'},{list:'咨询',url:'https://www.bilibili.com/v/anime/information/#/'},{list:'官方延伸',url:'https://www.bilibili.com/v/anime/offical/#/'},{list:'新番时间表',url:'https://www.bilibili.com/anime/timeline/'},{list:'番剧索引',url:'https://www.bilibili.com/anime/index'}]
           },{
-            title: "音乐",count:753,time:null,active:false,width:268,content:[{list:'原创音乐'},{list:'翻唱'},{list:'VOCALOID·UTAU'},{list:'电音'},{list:'演奏'},{list:'MV'},{list:'音乐现场'},{list:'音乐综合'},{list:'音频'}]
+            title: "音乐",count:753,time:null,active:false,width:268,content:[{list:'原创音乐',url:'https://www.bilibili.com/v/music/original/#/'},{list:'翻唱',url:'https://www.bilibili.com/v/music/cover/#/'},{list:'VOCALOID·UTAU',url:'https://www.bilibili.com/v/music/vocaloid/#/'},{list:'电音',url:'https://www.bilibili.com/v/music/electronic/#/'},{list:'演奏',url:'https://www.bilibili.com/v/music/perform/#/'},{list:'MV',url:'https://www.bilibili.com/v/music/mv/#/'},{list:'音乐现场',url:'https://www.bilibili.com/v/music/live/#/'},{list:'音乐综合',url:'https://www.bilibili.com/v/music/other/#/'},{list:'音频',url:'https://www.bilibili.com/audio/home?musicType=music'}]
           },{
             title: "国创",count:456,time:null,active:false,width:214,content:[{list:'国产动画'},{list:'国产原创相关'},{list:'布袋戏'},{list:'官方延伸'},{list:'资讯'},{list:'新番时间表'},{list:'国产动画索引'}]
           }, {
