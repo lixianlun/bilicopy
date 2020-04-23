@@ -5,6 +5,7 @@
     <banner></banner>
     <promote></promote>
     <live></live>
+    <bilicontent></bilicontent>
   </div>
 </template>
 
@@ -14,6 +15,7 @@
   import banner from "./components/banner/banner.vue"
   import promote from "./components/promote/promote.vue"
   import live from "./components/live/livaad.vue"
+  import bilicontent from "./components/content/bilicontent.vue"
   export default {
     name: 'App',
     components: {
@@ -21,7 +23,8 @@
       navul,
       banner,
       promote,
-      live
+      live,
+      bilicontent
     },
     methods:{
       wimh(){

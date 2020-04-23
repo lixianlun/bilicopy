@@ -2,7 +2,7 @@
   <div class="boxnav b-warp">
     <ul class="icon_nav">
       <li v-for="(clss,index) in active" :key="index">
-        <div class="icon_home" :class="clss.col"></div>
+        <div class="icon_home iconfont" :class="clss.col"></div>
         {{clss.goal}}
       </li>
     </ul>
@@ -29,7 +29,7 @@
     data() {
       return {
         sta:[{goal:'专栏'},{goal:'直播'},{goal:'活动'},{goal:'专题'},{goal:'小黑屋'},{goal:'音乐Plus'}],
-        active:[{col:'state',goal:'主页'},{col:'ranking',goal:'动态'},{col:'home',goal:'排行榜'}],
+        active:[{col:'icon-zhuye',goal:'主页'},{col:'icon-dongtai',goal:'动态'},{col:'icon-paihang',goal:'排行榜'}],
         classify: [{
             title: "动画",count:981,time:null,active:false,width:160,content:[{list:'MAD·AMV',url:'https://www.bilibili.com/v/douga/mad#/'},{list:'MMD·3D',url:'https://www.bilibili.com/v/douga/mmd/#/'},{list:'短片·手书·配音',url:'https://www.bilibili.com/v/douga/voice/#/'},{list:'特摄',url:'https://www.bilibili.com/v/douga/tokusatsu/#/'},{list:'综合',url:'https://www.bilibili.com/v/douga/other/#/'}]
           },{
@@ -99,7 +99,7 @@
       display flex
       height 64px
       li
-        width 45px
+        width 50px
         float left
         text-align center
         cursor pointer
@@ -107,14 +107,17 @@
       .icon_home
         width 36px
         height 36px
+        line-height 36px
+        font-size 23px
+        color white
         margin 0 auto 5px
         border-radius 36px
-        &.home
-          background #1890FF
-        &.state
+        &.icon-zhuye
           background #FB7299
-        &.ranking
-          background goldenrod
+        &.icon-dongtai
+          background #fcba2a
+        &.icon-paihang
+          background #00a1d6
   .nvbox
     height 5rem
     height 64px

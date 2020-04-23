@@ -38,3 +38,10 @@ export const liveApi={
       })
     }
 }
+export const dingApi={
+  list(){
+    return axios.get(url.ding).then((response)=>{
+      return response
+    })
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "1776666",
+  "name": "text",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1025164",
+      "name": "排行",
+      "font_class": "paihang",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "4320362",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "6684369",
+      "name": "纸飞机",
+      "font_class": "dongtai",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    }
+  ]
+}

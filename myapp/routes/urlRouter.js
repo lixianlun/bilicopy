@@ -7,7 +7,8 @@ import {
   headbackground,
   oneday,
   live,
-  livetopad
+  livetopad,
+  ding
 } from './urlconfig'
 
 const router = Router()
@@ -35,5 +36,9 @@ router.get('/live', async (ctx, next) => {
   let ltAD = await axios.get(livetopad)
   response.data.data.topad=ltAD.data
   ctx.body = response.data.data
+})
+router.get('/ding',async(ctx,next)=>{
+  let response=  await axios.get(ding)
+  ctx.body=response.data
 })
 export default router

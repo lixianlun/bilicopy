@@ -1,21 +1,21 @@
 <template>
   <div>
-    <a class="ad b-warp" v-if="livetopad" :href="livetopad.url" target="_blank">
+    <!-- <a class="ad b-warp" v-if="livetopad" :href="livetopad.url" target="_blank">
       <img class="bnimg" :src="livetopad.pic" alt="">
-    </a>
+    </a> -->
     <div class="live b-warp">
       <div class="liveleft">
         <header style="display: flex;justify-content: space-between;align-items: center;font-size: 12px;">
           <div style="display: flex;align-items: center;">
             <span class="live_iconf"></span>
-            <a style="font-size: 20px;margin-left: 10px;" class="live_open live_name" href="https://live.bilibili.com/" target="_blank">正在直播</a>
+            <a class="live_open live_name" href="https://live.bilibili.com/" target="_blank">正在直播</a>
             <a class="live_name_side">当前共有 {{live.online_total}} 个在线直播</a>
           </div>
           <div style="display: flex;">
-            <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;" @click="reload()">
-              <a class="reloadac" style="white-space: nowrap;" >换一换</a>
+            <div class="reload" @click="reload()">
+              <a class="reloadac">换一换</a>
             </div>
-            <a class="live_more" style="line-height: 15px;inline-block;margin-left: 15px;white-space: nowrap;border: 1px solid silver;padding: 2px 8px;border-radius: 2px;" href="https://live.bilibili.com/" target="_blank" >更多 ></a>
+            <a class="live_more" href="https://live.bilibili.com/" target="_blank" >更多 ></a>
           </div>
         </header>
         <ul class="liveul extension">
@@ -112,22 +112,38 @@
 
 <style lang="stylus">
   .live_more
+    margin-left 15px
+    padding 2px 8px
+    border-radius 2px
+    white-space nowrap
+    display flex
+    align-items center
+    border 1px solid silver
     transition background.3s ease
     &:hover
       background #f4f4f4
   .live_open
+    margin-left 10px
+    font-size 20px
     transition color .3s ease
     &:hover
       color #1890FF
   .reload
+    display flex
+    align-items center
     cursor pointer
     transition background .3s ease
+    border 1px solid silver
+    padding 2px 5px
+    border-radius 2px
     &:hover
       background #f4f4f4
       .reloadac
         &:before
           transform rotate(-280deg)
   .reloadac
+    display flex
+    white-space nowrap
     &:before
       content ''
       width 14px
@@ -271,7 +287,6 @@
       width 40px
       height 34px
       display inline-block
-      vertical-align middle
       background url(../../assets/icons.png) no-repeat
       background-position -141px -655px
 </style>

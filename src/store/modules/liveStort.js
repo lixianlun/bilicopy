@@ -35,7 +35,7 @@ const mutations={
      state.preview=livelist.preview[0]
      state.live=livelist
      state.livedata=livelist.recommend
-     state.livetopad=livelist.topad.data[40]
+     state.livetopad=livelist.topad.data[40][0]
   },
   [TYPE.LIVE_ERROR](state){
 

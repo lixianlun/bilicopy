@@ -1,11 +1,11 @@
 <template>
   <div class="bannerlist b-warp">
-    <div class="box_overflow bannerwh" @mouseover="stopbanner()" @mouseout="moveimg()">
+    <div class="box_overflow bannerwh"  @mouseover="stopbanner()" @mouseout="moveimg()">
       <ul class="box_ul" ref="banner">
           <li v-for="(item,index) in bannerdata.slice(0,bannerdata.length)" class="bannerli bannerwh" :key='index' >
               <a :href="item.url" target="_blank">
                 <img class="banimg" :src="item.pic">
-                <p>
+                <p style="width: 100%;">
                   <a>&nbsp;&nbsp;&nbsp;&nbsp;{{item.name}}</a>
                 </p>
               </a>
@@ -27,7 +27,13 @@
     data(){
       return{
         count:0,
-        stop:false
+        stop:false,
+        name:'B站数据没有拿到，过一段时间再尝试',
+        bl:[
+          {n:1},
+          {n:2},
+          {n:3},
+          ]
       }
     },
     computed: {
