@@ -83,6 +83,8 @@
       width 265px
     .l-txt
       width 102px
+    .preview
+      width 235px
   @media screen and (min-width 1438px)
     .bannerwh
       width 550px
@@ -102,4 +104,6 @@
       width 320px
     .l-txt
       width 158px
+    .preview
+      width 290px
 </style>

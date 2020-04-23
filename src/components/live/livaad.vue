@@ -38,9 +38,9 @@
         <ul class="live_side_ac">
           <li class="side-list" :class="{active:num==index}" @click="change(index)" v-for="(item,index) in sidelist" :key='index'>{{item.title}}</li>
         </ul>
-        <ul class="indeclass ">
+        <ul class="indeclass">
           <li class="side-content" v-for="(item,index) in ranking" :key="index" @click="enter($event,item.link)" >
-            <a class="sc-item" href="">
+            <a class="sc-item">
               <span class="ls-number">{{index+1}}</span>
               <img :src="item.face" alt="">
               <div class="sc-txt l-txt">
@@ -111,7 +111,17 @@
 </script>
 
 <style lang="stylus">
+  .ls-number
+    width 18px
+    height 18px
+    line-height 18px
+    border-radius 3px
+    text-align center
+    font-size 14px
+    margin-right 12px
+    color #999
   .live_more
+    line-height 14px
     margin-left 15px
     padding 2px 8px
     border-radius 2px
@@ -155,10 +165,10 @@
       transition transform .4s ease
   .indeclass
     display none
-    .side-content:nth-child(-n+3)
-      .ls-number
-        color white
-        background #00A1D6
+  .side-content:nth-child(-n+3)
+    .ls-number
+      color white
+      background #00A1D6
   .indeclass.active
     display block
   .ls-uname
@@ -188,29 +198,20 @@
     &:hover
       .ls-uname
         color #00A1D6
-    .sc-item
-      display flex
-      align-items center
-      .sc-txt
-        p
-          width 100%
-          white-space nowrap
-          overflow hidden
-          text-overflow ellipsis
-      .ls-number
-        width 18px
-        height 18px
-        line-height 18px
-        border-radius 3px
-        text-align center
-        font-size 14px
-        margin-right 12px
-        color #999
-      img
-        width 44px
-        height 44px
-        border-radius 50%
-        margin-right 12px
+  .sc-item
+    display flex
+    align-items center
+    .sc-txt
+      p
+        width 100%
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+    img
+      width 44px
+      height 44px
+      border-radius 50%
+      margin-right 12px
   .live_side_ac
     display flex
     height 36px

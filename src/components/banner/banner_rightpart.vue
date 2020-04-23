@@ -77,7 +77,7 @@
         line-height 16pt
         font-size 14px
         padding 3px 12px 3px 8px
-        margin 8px 0 0px 0
+        margin-top 8px
         overflow hidden
         -webkit-box-orient vertical
         display -webkit-box

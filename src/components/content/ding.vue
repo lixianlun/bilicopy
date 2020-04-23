@@ -4,11 +4,11 @@
       <header class="dint-title" style="font-size: 12px;">
         <div style="display: flex;align-items: center;">
           <span class="title_icon"></span>
-          <a class="title">动画</a>
+          <a class="title" style="margin-left:10px;">动画</a>
         </div>
         <div style="display: flex;">
-          <div class="reload" style="border: 1px solid silver;padding: 3px 5px;border-radius: 2px;">
-            <a class="reloadac" style="white-space: nowrap;" >换一换</a>
+          <div class="reload">
+            <a class="reloadac">换一换</a>
           </div>
           <a class="live_more">更多 ></a>
         </div>
@@ -66,6 +66,88 @@
           </li>
       </ul>
     </div>
+    <ul class="gg-window">
+      <header class="dint-title" >
+        <div style="display: flex;align-items: center;">
+          <a class="title">排行榜</a>
+        </div>
+        <div style="display: flex;">
+          <a class="live_more">更多 ></a>
+        </div>
+      </header>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">1</span>
+          <div class="preview">
+            <div style="display: inline-block;">
+              <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
+            </div>
+            <div style="margin-left: 12px;">
+              <a style="display: inline-block;">
+                <p class="two-hide">这动画太好看了！2020年4月新番吐槽大盘点！（第一弹）</p>
+              </a>
+              <span style="font-size: 12px;color: #999;">综合得分：242.1万</span>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">2</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">3</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">4</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">3</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">4</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">3</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+      <li class="rank-content">
+        <a class="sc-item">
+          <span class="ls-number">4</span>
+          <a>
+            <p class="oneline">这TM叫熊孩子？</p>
+          </a>
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -73,17 +155,53 @@
 </script>
 
 <style lang="stylus">
-  .dint-content
-    display flex
-    margin 30px auto 0
-  .dint-title
+  .oneline
+    font-size 14px
+    transition color .3s ease
+  .two-hide
+    height 40px
+    line-height 20px
+    font-size 14px
+    overflow hidden
+    display -webkit-box
+    -webkit-box-orient vertical
+    -webkit-line-clamp 2
+  .rank-content:nth-child(-n+4)
+      .ls-number
+        color white
+        background #00A1D6
+  .rank-content
     display flex
     align-items center
     justify-content space-between
-    .title
-      font-size 20px
-      margin-left 10px
-      cursor default
+    margin-bottom 16px
+    .two-hide
+      transition color .3s ease
+    &:hover
+      .two-hide
+        color #00A1D6
+      .oneline
+        color #00A1D6
+  .preview
+    display flex
+    img
+      width 112px
+      height 63px
+      border-radius 2px
+  .dint-content
+    display flex
+    justify-content space-between
+    margin 30px auto 0
+  .title
+    font-size 20px
+    cursor default
+  .dint-title
+    height 38px
+    font-size 12px
+    margin-bottom 16px
+    display flex
+    align-items center
+    justify-content space-between
     .title_icon
       width 40px
       height 38px
