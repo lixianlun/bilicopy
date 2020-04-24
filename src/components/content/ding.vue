@@ -7,62 +7,19 @@
           <a class="title" style="margin-left:10px;">动画</a>
         </div>
         <div style="display: flex;">
-          <div class="reload">
+          <div class="reload" @click="reload()">
             <a class="reloadac">换一换</a>
           </div>
           <a class="live_more">更多 ></a>
         </div>
       </header>
       <ul class="ding proul extension">
-          <li class="proli video-card-common">
+          <li class="proli video-card-common" v-for="(list,index) in item" :key="index">
             <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
+              <img class="bnimg" :src="list.pic" alt="">
+              <p class="pro_p">{{list.title}}</p>
             </a>
-            <p class="p_a">1234</p>
-          </li>
-          <li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
-          </li><li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
-          </li><li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
-          </li><li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
-          </li><li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
-          </li><li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
-          </li><li class="proli video-card-common">
-            <a class="pro_a" target='_blank'>
-              <img class="bnimg" src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
-              <p class="pro_p">这TM才叫火影疾风传！！！</p>
-            </a>
-            <p class="p_a">1234</p>
+            <p class="p_a">{{list.owner.name}}</p>
           </li>
       </ul>
     </div>
@@ -75,7 +32,7 @@
           <a class="live_more">更多 ></a>
         </div>
       </header>
-      <li class="rank-content">
+     <li class="rank-content">
         <a class="sc-item">
           <span class="ls-number">1</span>
           <div class="preview">
@@ -99,59 +56,33 @@
           </a>
         </a>
       </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">3</span>
-          <a>
-            <p class="oneline">这TM叫熊孩子？</p>
-          </a>
-        </a>
-      </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">4</span>
-          <a>
-            <p class="oneline">这TM叫熊孩子？</p>
-          </a>
-        </a>
-      </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">3</span>
-          <a>
-            <p class="oneline">这TM叫熊孩子？</p>
-          </a>
-        </a>
-      </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">4</span>
-          <a>
-            <p class="oneline">这TM叫熊孩子？</p>
-          </a>
-        </a>
-      </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">3</span>
-          <a>
-            <p class="oneline">这TM叫熊孩子？</p>
-          </a>
-        </a>
-      </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">4</span>
-          <a>
-            <p class="oneline">这TM叫熊孩子？</p>
-          </a>
-        </a>
-      </li>
     </ul>
   </div>
 </template>
 
 <script>
+  export default{
+    data(){
+      return{
+      }
+    },
+    props:{
+      item:{
+        type:Array
+      },
+      dings:{
+        type:String
+      }
+    },
+    methods:{
+      reload(){
+        this.$store.dispatch(this.dings)
+      }
+    },
+    mounted(){
+      console.log(typeof(this.dings))
+    }
+  }
 </script>
 
 <style lang="stylus">

@@ -6,6 +6,7 @@ import promoteStore from './modules/promoteStore.js'
 import headStore from './modules/headpartStore.js'
 import oneStore from './modules/oneStort.js'
 import liveStore from './modules/liveStort.js'
+import dingStore from './modules/dingStore.js'
 Vue.use(Vuex)
 
 
@@ -25,6 +26,7 @@ export default new Vuex.Store({
     promoteStore,
     headStore,
     oneStore,
-    liveStore
+    liveStore,
+    dingStore
   }
 });
