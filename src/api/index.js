@@ -45,3 +45,10 @@ export const dingApi={
     })
   }
 }
+export const rankApi={
+  list(){
+    return axios.get(url.rank).then((response)=>{
+      return response
+    })
+  }
+}

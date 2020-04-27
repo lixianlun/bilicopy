@@ -4,13 +4,13 @@
       <header class="dint-title" style="font-size: 12px;">
         <div style="display: flex;align-items: center;">
           <span class="title_icon"></span>
-          <a class="title" style="margin-left:10px;">动画</a>
+          <a class="title" style="margin-left:10px;">{{this.dings.name}}</a>
         </div>
         <div style="display: flex;">
           <div class="reload" @click="reload()">
             <a class="reloadac">换一换</a>
           </div>
-          <a class="live_more">更多 ></a>
+          <a class="live_more" :href="this.dings.url" target='_blank'>更多 ></a>
         </div>
       </header>
       <ul class="ding proul extension">
@@ -29,30 +29,28 @@
           <a class="title">排行榜</a>
         </div>
         <div style="display: flex;">
-          <a class="live_more">更多 ></a>
+          <a class="live_more" :href="this.dings.rankurl" target="_blank">更多 ></a>
         </div>
       </header>
-     <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">1</span>
+     <li class="rank-content" v-for="(rank,index) in (rank||'').slice(0,8)" :key='index'>
+        <a class="sc-item" v-if="index==0" :href="'https://www.bilibili.com/video/av'+rank.aid"  target="_blank">
+          <span class="ls-number">{{index+1}}</span>
           <div class="preview">
             <div style="display: inline-block;">
-              <img src="../../assets/d469fc8e9915b15f854cc0904a84ccbc1b6abd2a.jpg" alt="">
+              <img :src="rank.pic" alt="">
             </div>
-            <div style="margin-left: 12px;">
+            <div>
               <a style="display: inline-block;">
-                <p class="two-hide">这动画太好看了！2020年4月新番吐槽大盘点！（第一弹）</p>
+                <p class="two-hide">{{rank.title}}</p>
               </a>
-              <span style="font-size: 12px;color: #999;">综合得分：242.1万</span>
+              <span style="font-size: 12px;color: #999;">综合得分：{{trannum(rank.pts)}}</span>
             </div>
           </div>
         </a>
-      </li>
-      <li class="rank-content">
-        <a class="sc-item">
-          <span class="ls-number">2</span>
+        <a class="sc-item" v-else :href="'https://www.bilibili.com/video/av'+rank.aid" target="_blank">
+          <span class="ls-number">{{index+1}}</span>
           <a>
-            <p class="oneline">这TM叫熊孩子？</p>
+            <p class="oneline onelinetitle">{{rank.title}}</p>
           </a>
         </a>
       </li>
@@ -72,29 +70,38 @@
       },
       dings:{
         type:String
+      },
+      rank:{
+        type:undefined
       }
     },
     methods:{
       reload(){
-        this.$store.dispatch(this.dings)
+        this.$store.dispatch(this.dings.title)
       },
       openvideo(url){
         window.open('https://www.bilibili.com/video/av'+url)
       },
       openup(url){
         window.open('https://space.bilibili.com/'+url)
-      }
+      },
+      trannum(nu){
+        return nu>9999?(nu/10000).toFixed(1)+'万':nu
+      },
     },
     mounted(){
-      console.log(typeof(this.dings))
     }
   }
 </script>
 
 <style lang="stylus">
   .oneline
+    line-height 20px
+    overflow hidden
+    white-space nowrap
     font-size 14px
     transition color .3s ease
+    text-overflow ellipsis
   .two-hide
     height 40px
     line-height 20px
