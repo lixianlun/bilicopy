@@ -14,12 +14,12 @@
         </div>
       </header>
       <ul class="ding proul extension">
-          <li class="proli video-card-common" v-for="(list,index) in item" :key="index">
-            <a class="pro_a" target='_blank'>
+          <li class="proli video-card-common"  v-for="(list,index) in item" :key="index">
+            <a @click="openvideo(list.aid)" class="pro_a" target='_blank'>
               <img class="bnimg" :src="list.pic" alt="">
               <p class="pro_p">{{list.title}}</p>
             </a>
-            <p class="p_a">{{list.owner.name}}</p>
+            <p class="p_a" @click="openup(list.owner.mid)">{{list.owner.name}}</p>
           </li>
       </ul>
     </div>
@@ -77,6 +77,12 @@
     methods:{
       reload(){
         this.$store.dispatch(this.dings)
+      },
+      openvideo(url){
+        window.open('https://www.bilibili.com/video/av'+url)
+      },
+      openup(url){
+        window.open('https://space.bilibili.com/'+url)
       }
     },
     mounted(){

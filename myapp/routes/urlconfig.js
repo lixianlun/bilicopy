@@ -50,6 +50,7 @@ export const oneday = 'https://api.bilibili.com/x/web-interface/dynamic/region?&
 // 游戏排行 3-3day.json
 // 科技排行 36-3day.json
 // 生活排行 160-3day.json
+// 国产原创 168
 // 鬼畜排行 119-3day.json
 // 时尚排行 155-3day.json
 // 广告排行 165-3day.json
