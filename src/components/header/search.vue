@@ -2,7 +2,7 @@
   <div id="searchbox" class="searchbox">
     <div class="search_size">
       <form action="" class="nav_search">
-        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"  v-model="message" @keydown="getdata($event)" id="search" class="In_search nav_search">
+        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"  v-model="message" @keyup="getdata($event)" id="search" class="In_search nav_search">
         <div class="butback">
           <button type="button" class="search_button" @click="onsearch()"></button>
         </div>
@@ -32,6 +32,13 @@
         if(!this.$refs.input.contains(e.target)){
           this.none();
         }
+      }),
+      document.addEventListener('keydown',e=>{
+          if(e.keyCode == 13){
+            window.open(this.search+this.message);
+            e.preventDefault();
+            this.none;
+          }
       })
     },
     methods:{
@@ -67,10 +74,6 @@
           this.$refs.searchlist[this.lindex].style.background='rgba(0,0,0,.05)';
           this.message=this.$refs.searchlist[this.lindex].firstChild.innerText;
           ev.preventDefault();
-        }else if(ev.keyCode==13){
-          window.open(this.search+this.message);
-          ev.preventDefault();
-          this.none()
         }else{
           if(this.message==""){
             this.none()

@@ -69,7 +69,7 @@
         type:Array
       },
       dings:{
-        type:String
+        type:Object
       },
       rank:{
         type:undefined
