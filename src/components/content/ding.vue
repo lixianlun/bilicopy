@@ -3,8 +3,8 @@
     <div>
       <header class="dint-title" style="font-size: 12px;">
         <div style="display: flex;align-items: center;">
-          <span class="title_icon"></span>
-          <a class="title" style="margin-left:10px;">{{this.dings.name}}</a>
+          <span class="title_icon douga" :class="this.dings.icon"></span>
+          <a class="dingtitle" style="margin-left:5px;" :href="this.dings.url" target="_blank">{{this.dings.name}}</a>
         </div>
         <div style="display: flex;">
           <div class="reload" @click="reload()">
@@ -26,7 +26,7 @@
     <ul class="gg-window">
       <header class="dint-title" >
         <div style="display: flex;align-items: center;">
-          <a class="title">排行榜</a>
+          <a style="font-size:20px;cursor: default;">排行榜</a>
         </div>
         <div style="display: flex;">
           <a class="live_more" :href="this.dings.rankurl" target="_blank">更多 ></a>
@@ -136,9 +136,11 @@
     display flex
     justify-content space-between
     margin 30px auto 0
-  .title
+  .dingtitle
     font-size 20px
-    cursor default
+    transition  color .4s ease
+    &:hover
+      color #0077AA
   .dint-title
     height 38px
     font-size 12px
@@ -147,11 +149,14 @@
     align-items center
     justify-content space-between
     .title_icon
-      width 40px
-      height 38px
+      width 45px
+      height 45px
       display inline-block
       background url(../../assets/icons.png) no-repeat
-      background-position -141px -652px
+      &.douga
+        background-position -137px -905px
+      &.guochuang
+        background-position -138px -1163px
   .contentlist
     height 360px
   .ding

@@ -59,20 +59,21 @@
       },
       getdata(ev){
         let arr=Object.values(this.dates);
+        let seli=this.$refs.searchlist;
         if(ev.keyCode==40){
           for(let i=0;i<arr.length;i++){
-            this.$refs.searchlist[i].style.background='white';
+            seli[i].style.background='white';
           }
-          this.lindex===arr.length-1?this.lindex=arr.length-1:this.lindex++;
-          this.$refs.searchlist[this.lindex].style.background='rgba(0,0,0,.05)';
-          this.message=this.$refs.searchlist[this.lindex].firstChild.innerText;
+          this.lindex==arr.length-1?this.lindex=arr.length-1:this.lindex++;
+          seli[this.lindex].style.background='rgba(0,0,0,.05)';
+          this.message=seli[this.lindex].firstChild.innerText;
         }else if(ev.keyCode==38){
           for(let i=0;i<arr.length;i++){
-            this.$refs.searchlist[i].style.background='white';
+            seli[i].style.background='white';
           }
           this.lindex==0?this.lindex=0:this.lindex--;
-          this.$refs.searchlist[this.lindex].style.background='rgba(0,0,0,.05)';
-          this.message=this.$refs.searchlist[this.lindex].firstChild.innerText;
+          seli[this.lindex].style.background='rgba(0,0,0,.05)';
+          this.message=seli[this.lindex].firstChild.innerText;
           ev.preventDefault();
         }else{
           if(this.message==""){

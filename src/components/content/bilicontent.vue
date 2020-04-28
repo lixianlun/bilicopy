@@ -16,8 +16,8 @@
     data(){
       return{
         dings:{
-          douga:{name:'动画',url:'https://www.bilibili.com/v/douga',title:'douga',rankurl:'https://www.bilibili.com/ranking/all/1/0/3'},
-          guochuang:{name:'国产原创相关',url:'https://www.bilibili.com/guochuang/',title:'guochuang',rankurl:'https://www.bilibili.com/ranking/all/168/0/3'}
+          douga:{name:'动画',icon:'douga',url:'https://www.bilibili.com/v/douga',title:'douga',rankurl:'https://www.bilibili.com/ranking/all/1/0/3'},
+          guochuang:{name:'国产原创相关',icon:'guochuang',url:'https://www.bilibili.com/guochuang/',title:'guochuang',rankurl:'https://www.bilibili.com/ranking/all/168/0/3'}
         }
       }
     },

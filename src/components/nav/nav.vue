@@ -17,7 +17,12 @@
     </ul>
     <span class="nv_line"></span>
     <ul class="navright">
-        <li v-for="(sta,index) in sta" :key="index"><span></span>{{sta.goal}}</li>
+        <li class="navli" v-for="(sta,index) in sta" :key="index">
+          <a class="navlia" style="display: flex;">
+            <span class="navicon" :class="sta.icon"></span>
+            {{sta.goal}}
+          </a>
+        </li>
     </ul>
   </div>
 </template>
@@ -28,12 +33,12 @@
     },
     data() {
       return {
-        sta:[{goal:'专栏'},{goal:'直播'},{goal:'活动'},{goal:'专题'},{goal:'小黑屋'},{goal:'音乐Plus'}],
+        sta:[{goal:'专栏',icon:'bili-read'},{goal:'直播'},{goal:'活动',icon:'bili-active'},{goal:'专题'},{goal:'小黑屋',icon:'bili-blackhome'},{goal:'音乐Plus',icon:'bili-misic'}],
         active:[{col:'icon-zhuye',goal:'主页'},{col:'icon-dongtai',goal:'动态'},{col:'icon-paihang',goal:'排行榜'}],
         classify: [{
             title: "动画",count:981,time:null,active:false,width:160,content:[{list:'MAD·AMV',url:'https://www.bilibili.com/v/douga/mad#/'},{list:'MMD·3D',url:'https://www.bilibili.com/v/douga/mmd/#/'},{list:'短片·手书·配音',url:'https://www.bilibili.com/v/douga/voice/#/'},{list:'特摄',url:'https://www.bilibili.com/v/douga/tokusatsu/#/'},{list:'综合',url:'https://www.bilibili.com/v/douga/other/#/'}]
           },{
-            title: "番剧",count:1233,count:1233,time:null,active:false,width:172,content:[{list:'连载动画',url:'https://www.bilibili.com/v/anime/serial/#/'},{list:'完结动画',url:'https://www.bilibili.com/v/anime/finish/#/'},{list:'咨询',url:'https://www.bilibili.com/v/anime/information/#/'},{list:'官方延伸',url:'https://www.bilibili.com/v/anime/offical/#/'},{list:'新番时间表',url:'https://www.bilibili.com/anime/timeline/'},{list:'番剧索引',url:'https://www.bilibili.com/anime/index'}]
+            title: "番剧",count:1293,time:null,active:false,width:172,content:[{list:'连载动画',url:'https://www.bilibili.com/v/anime/serial/#/'},{list:'完结动画',url:'https://www.bilibili.com/v/anime/finish/#/'},{list:'咨询',url:'https://www.bilibili.com/v/anime/information/#/'},{list:'官方延伸',url:'https://www.bilibili.com/v/anime/offical/#/'},{list:'新番时间表',url:'https://www.bilibili.com/anime/timeline/'},{list:'番剧索引',url:'https://www.bilibili.com/anime/index'}]
           },{
             title: "音乐",count:753,time:null,active:false,width:268,content:[{list:'原创音乐',url:'https://www.bilibili.com/v/music/original/#/'},{list:'翻唱',url:'https://www.bilibili.com/v/music/cover/#/'},{list:'VOCALOID·UTAU',url:'https://www.bilibili.com/v/music/vocaloid/#/'},{list:'电音',url:'https://www.bilibili.com/v/music/electronic/#/'},{list:'演奏',url:'https://www.bilibili.com/v/music/perform/#/'},{list:'MV',url:'https://www.bilibili.com/v/music/mv/#/'},{list:'音乐现场',url:'https://www.bilibili.com/v/music/live/#/'},{list:'音乐综合',url:'https://www.bilibili.com/v/music/other/#/'},{list:'音频',url:'https://www.bilibili.com/audio/home?musicType=music'}]
           },{
@@ -229,22 +234,35 @@
     margin 1px 15px 0
   .navright
     width 210px
-    height 64px
+    height 68px
     display flex
     flex-wrap wrap
     flex-direction column
-    li
+    .navli
+      height 34px
+      align-items center
       line-height 17px
+      display flex
       font-size 14px
-      cursor pointer
-      padding 7px 0px
       white-space nowrap
-      span
+      .navlia
+        transition color .3s ease
+        &:hover
+          color #0077AA
+      .navicon
         width 18px
         height 18px
         margin-right 3px
-        border-radius 5px
-        background #1890FF
+        background url(../../assets/icons.png) no-repeat
+        background-size 1000px 1450px
         float left
         display inline-block
+        &.bili-read
+          background-position -50px -542px
+        &.bili-active
+          background-position -50px -48px
+        &.bili-blackhome
+          background-position -50px -238px
+        &.bili-misic
+          background-position -51px -199px
 </style>
