@@ -33,7 +33,7 @@
     },
     data() {
       return {
-        sta:[{goal:'专栏',icon:'bili-read'},{goal:'直播'},{goal:'活动',icon:'bili-active'},{goal:'专题'},{goal:'小黑屋',icon:'bili-blackhome'},{goal:'音乐Plus',icon:'bili-misic'}],
+        sta:[{goal:'专栏',icon:'bili-read'},{goal:'直播',icon:'bili-live'},{goal:'活动',icon:'bili-active'},{goal:'专题'},{goal:'小黑屋',icon:'bili-blackhome'},{goal:'音乐Plus',icon:'bili-misic'}],
         active:[{col:'icon-zhuye',goal:'主页'},{col:'icon-dongtai',goal:'动态'},{col:'icon-paihang',goal:'排行榜'}],
         classify: [{
             title: "动画",count:981,time:null,active:false,width:160,content:[{list:'MAD·AMV',url:'https://www.bilibili.com/v/douga/mad#/'},{list:'MMD·3D',url:'https://www.bilibili.com/v/douga/mmd/#/'},{list:'短片·手书·配音',url:'https://www.bilibili.com/v/douga/voice/#/'},{list:'特摄',url:'https://www.bilibili.com/v/douga/tokusatsu/#/'},{list:'综合',url:'https://www.bilibili.com/v/douga/other/#/'}]
@@ -265,4 +265,6 @@
           background-position -50px -238px
         &.bili-misic
           background-position -51px -199px
+        &.bili-live
+          background-position -50px -85px
 </style>
