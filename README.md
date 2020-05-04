@@ -1,4 +1,4 @@
-git clone https://github.com/lybenson/bilibili-vue  
+git clone https://github.com/lixianlun/bilicopy
 
 前端运行  
 cd bilicopy  
