@@ -1,6 +1,6 @@
 import * as TYPE from '../actionType.js'
 import axios from "axios"
-import {oneApi} from "../../api/index.js"
+import {Api} from "../../api/index.js"
 const state={
   onedata:[],
 }
@@ -12,7 +12,7 @@ const actions= {
   onedata({commit,state,rootState}){
     rootState.requesting=true
     commit(TYPE.REQUEST)
-    oneApi.list().then((response)=>{
+    Api.onelist().then((response)=>{
       rootState.requesting=false
       commit(TYPE.SUCCESS,response)
     },(error)=>{

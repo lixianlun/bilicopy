@@ -1,4 +1,4 @@
-import {bannerApi} from "../../api/index.js"
+import {Api} from "../../api/index.js"
 import * as TYPE from '../actionType.js'
 import axios from "axios"
 
@@ -13,7 +13,7 @@ const actions= {
   bannerdata({commit,state,rootState}){
     rootState.requesting=true
     commit(TYPE.BANNER_REQUEST)
-    bannerApi.list().then((response)=>{
+    Api.bannerlist().then((response)=>{
       rootState.requesting=false
       commit(TYPE.BANNER_SUCCESS,response)
     },(error)=>{

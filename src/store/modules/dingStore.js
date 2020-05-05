@@ -1,5 +1,4 @@
-import {dingApi} from "../../api/index.js"
-import {rankApi} from "../../api/index.js"
+import {Api} from "../../api/index.js"
 import * as TYPE from '../actionType.js'
 import axios from "axios"
 
@@ -17,7 +16,7 @@ const actions={
   dingdata({commit,state,rootState},payload){
     rootState.requesting=true
     commit(TYPE.DING_REQUEST)
-    dingApi.list().then((response)=>{
+    Api.dinglist().then((response)=>{
       rootState.requesting=false
       commit(TYPE.DING_SUCCESS,response)
       // commit(TYPE.DING_SUCCESS_GUOCHUANG,response)
@@ -27,17 +26,17 @@ const actions={
     })
   },
   douga({commit,state,rootState}){
-    dingApi.list().then((response)=>{
+    Api.dinglist().then((response)=>{
       commit(TYPE.DING_SUCCESS_DOUGA,response)
     })
   },
   guochuang({commit,state,rootState}){
-    dingApi.list().then((response)=>{
+    Api.dinglist().then((response)=>{
       commit(TYPE.DING_SUCCESS_GUOCHUANG,response)
     })
   },
   rankdata({commit,state,rootState}){
-    rankApi.list().then((response)=>{
+    Api.ranklist().then((response)=>{
       commit(TYPE.RANK_SUCCESS,response)
     })
   }

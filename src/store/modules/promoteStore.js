@@ -1,4 +1,4 @@
-import {promoteApi} from "../../api/index.js"
+import {Api} from "../../api/index.js"
 import * as TYPE from '../actionType.js'
 import axios from "axios"
 
@@ -14,7 +14,7 @@ const actions={
   promote({commit,state,rootState}){
     rootState.requesting=true
     commit(TYPE.PROMOTE_REQUEST)
-    promoteApi.list().then((response)=>{
+    Api.promotelist().then((response)=>{
       rootState.requesting=false
       commit(TYPE.PROMOTE_SUCCESS,response)
     },(error)=>{

@@ -1,6 +1,6 @@
 import* as TYPE from '../actionType.js'
 import axios from 'axios'
-import {liveApi} from '../../api/index.js'
+import {Api} from '../../api/index.js'
 
 const state={
   ranking:[],
@@ -20,7 +20,7 @@ const actions={
   livedata({commit,state,rootState}){
     rootState.requesting=true
     commit(TYPE.LIVE_REQUEST)
-    liveApi.list().then((response)=>{
+    Api.livelist().then((response)=>{
       commit(TYPE.LIVE_SUCCESS,response)
     },(error)=>{
       commit(TYPE.LIVE_ERROR)

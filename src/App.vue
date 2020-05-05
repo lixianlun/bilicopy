@@ -56,7 +56,6 @@
   .space-between
     display flex
     justify-content space-between
-    margin-bottom 40px
   .color
     color #1890FF
   .bnimg

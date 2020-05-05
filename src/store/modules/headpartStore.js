@@ -1,6 +1,6 @@
 import * as TYPE from '../actionType.js'
 import axios from "axios"
-import {headApi} from "../../api/index.js"
+import {Api} from "../../api/index.js"
 const state={
   headdata:[],
 }
@@ -12,7 +12,7 @@ const actions= {
   headdata({commit,state,rootState}){
     rootState.requesting=true
     commit(TYPE.HEAD_REQUEST)
-    headApi.list().then((response)=>{
+    Api.headlist().then((response)=>{
       rootState.requesting=false
       commit(TYPE.HEAD_SUCCESS,response)
     },(error)=>{
