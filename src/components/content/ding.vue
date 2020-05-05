@@ -13,13 +13,13 @@
           <a class="live_more" :href="this.dings.url" target='_blank'>更多 ></a>
         </div>
       </header>
-      <ul class="ding proul extension">
+      <ul class="ding proul extension dingh">
           <li class="proli video-card-common"  v-for="(list,index) in item" :key="index">
             <a @click="openvideo(list.aid)" class="pro_a" target='_blank'>
               <img class="bnimg" :src="list.pic" alt="">
               <p class="pro_p">{{list.title}}</p>
             </a>
-            <p class="p_a" @click="openup(list.owner.mid)">{{list.owner.name}}</p>
+            <p class="p_a" @click="openup(list.owner.mid)"><span class="icon-up">up</span>{{list.owner.name}}</p>
           </li>
       </ul>
     </div>
@@ -160,6 +160,14 @@
   .contentlist
     height 360px
   .ding
-    height 360px
     flex-wrap wrap
+  .icon-up
+    width 18px
+    height 17px
+    transform scale(0.8)
+    margin-right 3px
+    text-align center
+    border-radius 4px
+    border 1px solid #999
+    transition border .3s ease
 </style>

@@ -99,6 +99,7 @@
 .Topcontainer
   position relative
 .backimg
+  cursor pointer
   position relative
   z-index 0
   height 9.375vw

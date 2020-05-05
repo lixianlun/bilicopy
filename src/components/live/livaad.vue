@@ -18,9 +18,9 @@
             <a class="live_more" href="https://live.bilibili.com/" target="_blank" >更多 ></a>
           </div>
         </header>
-        <ul class="liveul extension">
+        <ul class="liveul extension dingh">
             <li class="liveli video-card-common" v-for="(item,index) in livedata.slice(0,8)" @click="enter($event,item.link)" :key='index'>
-                <div class="live_pic">
+                <div class="live_pic video-card-common">
                   <img class="bnimg" :src="item.pic" alt="">
                 </div>
                 <div class="live_up">
@@ -231,7 +231,7 @@
       border-bottom 1px solid #00a1d6
   .live_pic
     width 100%
-    height 96px
+    height 100%
     display block
     margin-bottom 10px
   .live_up
@@ -269,12 +269,12 @@
     justify-content space-between
   .liveleft
     .liveul
-      height 360px
       margin-top 15px
       display flex
       flex-wrap wrap
       justify-content space-between
       .liveli
+        // width 170px
         cursor pointer
         transition color .3s ease
         &:hover

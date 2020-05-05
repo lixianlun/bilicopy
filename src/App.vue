@@ -64,6 +64,8 @@
     height 100%
     border-radius 3px
   @media screen and (max-width 1438px)
+    .dingh
+      height 360px
     .banrwh
       width 530px
       height 202px
@@ -88,6 +90,8 @@
     .onelinetitle
       width 235px
   @media screen and (min-width 1438px)
+    .dingh
+      height 422px
     .bannerwh
       width 550px
       height 242px

@@ -5,7 +5,7 @@
          <img class="bnimg" :src="item.pic" alt="">
          <div class="backbetween video-card-common">
            <p class="br_cover">{{item.title}}</p>
-           <p class="br_p br_m" href="">{{item.owner.name}}</p>
+           <p class="br_p br_m"><span class="icon-up">up</span>{{item.owner.name}}</p>
            <p class="br_p br_b">{{trannum(item.stat.view)}} 播放量</p>
          </div>
          <p class="bew_corver"></p>
@@ -68,15 +68,15 @@
     .backbetween
       background rgba(0,0,0,0)
       position absolute
-      top 61px
+      top 80px
       z-index 1
       color azure
       transition top .2s,background .3s
       border-radius 3px
       .br_cover
-        line-height 16pt
+        line-height 15pt
         font-size 14px
-        padding 3px 12px 3px 8px
+        padding 3px 12px 2px 8px
         margin-top 8px
         overflow hidden
         -webkit-box-orient vertical
@@ -86,8 +86,13 @@
         position absolute
         font-size 9px
         padding 3px 12px 4px 8px
+        display flex
+        align-items center
       .br_b
+        margin-left 2px
         bottom 8px
       .br_m
         bottom 25px
+  .icon-w
+    color white
 </style>

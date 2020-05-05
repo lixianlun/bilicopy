@@ -10,7 +10,7 @@
               <img class="bnimg" :src="item.pic" alt="">
               <p class="pro_p">{{item.name}}</p>
             </a>
-            <p class="p_a" @click="open(item.archive.owner.mid)">{{item.archive.owner.name}}</p>
+            <p class="p_a" @click="open(item.archive.owner.mid)"><span class="icon-up">up</span>{{item.archive.owner.name}}</p>
           </li>
       </ul>
     </div>
@@ -93,7 +93,7 @@
             color #1890ff
       .pro_p
         height 40px
-        margin-top 8px
+        margin 10px 0 8px
         line-height 20px
         font-size 14px
         font-weight 500
@@ -101,14 +101,17 @@
         display -webkit-box
         -webkit-box-orient vertical
         -webkit-line-clamp 2
-        transition color .3s
+        transition color .3s ease
       .p_a
-        display inline-block
-        margin-top 7px
+        display flex
+        align-items center
+        line-height 16px
         color #999
         font-size 12px
         cursor pointer
         transition color .3s ease
         &:hover
           color #00A1D6
+          .icon-up
+            border 1px solid #00A1D6
 </style>
