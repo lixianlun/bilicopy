@@ -5,7 +5,7 @@
     <banner></banner>
     <promote></promote>
     <live></live>
-    <bilicontent></bilicontent>
+    <!-- <bilicontent></bilicontent> -->
   </div>
 </template>
 
