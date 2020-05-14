@@ -6,6 +6,6 @@ npm install
 npm run dev  
 
 后端运行  
-cd bilicopy/myapp  
+cd bilicopy/app  
 npm install  
 npm run dev  
