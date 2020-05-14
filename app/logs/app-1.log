@@ -1,0 +1,15 @@
+[0mGET / [36m304 [0m19.173 ms - -[0m
+[0mGET /static/css/reset.css [36m304 [0m9.563 ms - -[0m
+[0mGET /static/js/vendor.4d09085d5142b51dddc7.js [36m304 [0m2.321 ms - -[0m
+[0mGET /static/img/icons.aef9bb0.png [36m304 [0m7.565 ms - -[0m
+[0mGET / [32m200 [0m4.018 ms - 641[0m
+[0mGET /static/css/reset.css [32m200 [0m4.736 ms - -[0m
+[0mGET /static/js/vendor.4d09085d5142b51dddc7.js [32m200 [0m3.177 ms - -[0m
+[0mGET /static/img/icons.aef9bb0.png [32m200 [0m0.896 ms - 242087[0m
+[0mGET /undefined [33m404 [0m413.222 ms - 160[0m
+[0mGET /static/css/app.fadb1592e108cb80770fe34a5659221d.css [36m304 [0m2.922 ms - -[0m
+[0mGET /static/js/manifest.3ad1d5771e9b13dbdad2.js [36m304 [0m1.562 ms - -[0m
+[0mGET /static/js/app.0b13ee2b055dbc7fa92f.js [36m304 [0m1.038 ms - -[0m
+[0mGET /static/img/icons.aef9bb0.png [36m304 [0m0.589 ms - -[0m
+[0mGET /undefined [33m404 [0m1.040 ms - 160[0m
+[0mGET /favicon.ico [33m404 [0m0.973 ms - 160[0m

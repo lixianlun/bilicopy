@@ -4,8 +4,8 @@
     <navul></navul>
     <banner></banner>
     <promote></promote>
-    <!-- <live></live> -->
-    <!-- <bilicontent></bilicontent> -->
+    <live></live>
+    <bilicontent></bilicontent>
   </div>
 </template>
 
