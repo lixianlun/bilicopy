@@ -53,18 +53,17 @@
             window.open(this.search+this.message);
             e.preventDefault();
             this.none;
-            this.localstoragelist.push(this.message);
+            this.storagepush()
           }
       })
     },
     watch:{
       localstoragelist:{
         handler(items){
-          if(items!==[]){
-            Storage.save(items);
-            if(items.length==0){
-              this.list_show=false;
-            }
+          if(items.length>0){
+            Storage.save(this.reArr(items));
+          }else if(items.length==0){
+            this.list_show=false;
           }
         },
         deep: true
@@ -80,6 +79,20 @@
       }
     },
     methods:{
+      storagepush(){
+        this.localstoragelist.push(this.message);
+        let arr = Storage.fetch();
+        this.localstoragelist=arr;
+      },
+      reArr(str){
+        var result=[];
+        for(var i=0;i<str.length;i++){
+        	if(result.indexOf(str[i])==-1){
+        		result.push(str[i]);
+        	}
+        }
+        return result
+      },
       del(index){
         this.localstoragelist.splice(index,1);
       },
@@ -87,12 +100,12 @@
         ev.preventDefault();
         window.open(this.search+v)
         this.message=v;
-        this.localstoragelist.push(this.message);
+        this.storagepush()
         this.none()
       },
       onsearch(){
         window.open(this.search+this.message);
-        this.localstoragelist.push(this.message);//给localstoragelist添加一个对象（之前我们创建的info）
+        this.storagepush()
         this.none();
       },
       none(){
@@ -121,7 +134,6 @@
           this.message=seli[this.lindex].firstChild.innerText;
           ev.preventDefault();
         }else{
-          console.log(ev.keyCode)
           if(this.message==""){
             this.none()
           }else{
