@@ -79,12 +79,13 @@
       }
     },
     methods:{
-      storagepush(){
-        this.localstoragelist.push(this.message);
+      storagepush(){//防止渲染重复
         let arr = Storage.fetch();
-        this.localstoragelist=arr;
+        if(arr.indexOf(this.message)==-1){
+          this.localstoragelist.push(this.message);
+        }
       },
-      reArr(str){
+      reArr(str){//缓存去重复
         var result=[];
         for(var i=0;i<str.length;i++){
         	if(result.indexOf(str[i])==-1){
@@ -93,7 +94,7 @@
         }
         return result
       },
-      del(index){
+      del(index){//缓存删除
         this.localstoragelist.splice(index,1);
       },
       butt(ev,v){
@@ -151,6 +152,8 @@
 </script>
 
 <style lang="stylus">
+  .sear_l
+    height 32px
   .searchbox
     width 480px
     margin 0 10px
