@@ -10,27 +10,42 @@
      <ul id="sear_b" class="sear_b" v-show="s_show">
         <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index" @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
       </ul>
+      <ul id="sear_b" class="sear_b" v-show="list_show">
+         <li class="sear_l"  v-for="(item,index) in localstoragelist" ref="searchlist" :key="item.index" @click="butt($event,item)" >
+           <a >{{item}}</a>
+           <span class="iconfont icon-ic_close" style="float: right;" @click.stop="del(index)"></span>
+         </li>
+       </ul>
     </div>
   </div>
 </template>
 
 <script>
   import axios from "axios";
+  import Storage from '../../store/store.js';
   export default{
     data(){
       return {
         message:'',
         dates:[],
+        localstoragelist:Storage.fetch(),
         url:'https://s.search.bilibili.com/main/suggest?term=',
         search:'https://search.bilibili.com/all?keyword=',
         lindex:-1,
-        s_show:false
+        s_show:false,
+        list_show:false,
       }
     },
     mounted() {
       document.addEventListener('click',e=>{
         if(!this.$refs.input.contains(e.target)){
           this.none();
+        }else{
+          if(this.localstoragelist.length>0){
+            if(!this.s_show){
+              this.list_show=true;
+            }
+          }
         }
       }),
       document.addEventListener('keydown',e=>{
@@ -38,24 +53,54 @@
             window.open(this.search+this.message);
             e.preventDefault();
             this.none;
+            this.localstoragelist.push(this.message);
           }
       })
     },
+    watch:{
+      localstoragelist:{
+        handler(items){
+          if(items!==[]){
+            Storage.save(items);
+            if(items.length==0){
+              this.list_show=false;
+            }
+          }
+        },
+        deep: true
+      },
+      s_show:{
+        handler(items){
+          if(items){
+            this.list_show=false;
+          }else{
+            this.list_show=true;
+          }
+        },
+      }
+    },
     methods:{
+      del(index){
+        this.localstoragelist.splice(index,1);
+      },
       butt(ev,v){
         ev.preventDefault();
         window.open(this.search+v)
+        this.message=v;
+        this.localstoragelist.push(this.message);
         this.none()
       },
       onsearch(){
         window.open(this.search+this.message);
-        this.none()
+        this.localstoragelist.push(this.message);//给localstoragelist添加一个对象（之前我们创建的info）
+        this.none();
       },
       none(){
         this.message=="";
         this.dates=[];
         this.s_show=false;
         this.lindex=-1;
+        this.list_show=false;
       },
       getdata(ev){
         let arr=Object.values(this.dates);
@@ -76,6 +121,7 @@
           this.message=seli[this.lindex].firstChild.innerText;
           ev.preventDefault();
         }else{
+          console.log(ev.keyCode)
           if(this.message==""){
             this.none()
           }else{
