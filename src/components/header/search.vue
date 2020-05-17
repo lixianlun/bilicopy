@@ -2,7 +2,8 @@
   <div id="searchbox" class="searchbox">
     <div class="search_size">
       <form action="" class="nav_search">
-        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"  v-model="message" @keyup="getdata($event)" id="search" class="In_search nav_search">
+        <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"
+          v-model="message" @keyup="getdata($event)" id="search" class="In_search nav_search">
         <div class="butback">
           <button type="button" class="search_button" @click="onsearch()"></button>
         </div>
@@ -119,22 +120,26 @@
       getdata(ev){
         let arr=Object.values(this.dates);
         let seli=this.$refs.searchlist;
-        if(ev.keyCode==40){
+
+
+        console.log(ev.keyCode)
+        if(ev.keyCode==40){ //dowm
           for(let i=0;i<arr.length;i++){
             seli[i].style.background='white';
           }
           this.lindex==arr.length-1?this.lindex=arr.length-1:this.lindex++;
           seli[this.lindex].style.background='rgba(0,0,0,.05)';
           this.message=seli[this.lindex].firstChild.innerText;
-        }else if(ev.keyCode==38){
-          for(let i=0;i<arr.length;i++){
-            seli[i].style.background='white';
-          }
-          this.lindex==0?this.lindex=0:this.lindex--;
-          seli[this.lindex].style.background='rgba(0,0,0,.05)';
-          this.message=seli[this.lindex].firstChild.innerText;
-          ev.preventDefault();
+        }else if(ev.keyCode==38){   //up
+          // for(let i=0;i<arr.length;i++){
+          //   seli[i].style.background='white';
+          // }
+          // this.lindex==0?this.lindex=0:this.lindex--;
+          // seli[this.lindex].style.background='rgba(0,0,0,.05)';
+          // this.message=seli[this.lindex].firstChild.innerText;
+          // ev.preventDefault();
         }else{
+
           if(this.message==""){
             this.none()
           }else{
