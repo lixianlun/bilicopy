@@ -33,7 +33,6 @@
         url:'https://s.search.bilibili.com/main/suggest?term=',
         search:'https://search.bilibili.com/all?keyword=',
         lindex:-1,
-        sindex:-1,
         s_show:false,
         list_show:false,
       }
@@ -43,6 +42,7 @@
         if(!this.$refs.input.contains(e.target)){
           this.none();
         }else{
+          this.lindex=-1;
           if(this.localstoragelist.length>0){
             if(!this.s_show){
               this.list_show=true;
@@ -53,18 +53,19 @@
       document.addEventListener('keydown',e=>{
           if(e.keyCode == 13){
             window.open(this.search+this.message);
-
-            this.none;
             this.storagepush();
+            this.none();
             e.preventDefault();
           }
       })
     },
     watch:{
-      localstoragelist:{
+      localstoragelist:{//缓存监听
         handler(items){
           if(items.length==0){
             this.list_show=false;
+          }else{
+            this.list_show=true;
           }
           Storage.save(this.reArr(items));
         },
@@ -74,16 +75,14 @@
         handler(items){
           if(items){
             this.list_show=false;
-            this.none;
           }else{
             this.list_show=true;
-            this.none;
           }
         },
       }
     },
     methods:{
-      storagepush(){//防止渲染重复
+      storagepush(){//记录同时防止渲染重复
         let arr = Storage.fetch();
         if(arr.indexOf(this.message)==-1){
           this.localstoragelist.push(this.message);
@@ -101,25 +100,38 @@
       del(index){//缓存删除
         this.localstoragelist.splice(index,1);
       },
-      butt(ev,v){
-        ev.preventDefault();
+      butt(ev,v){//打开列表的搜索
         window.open(this.search+v)
-        this.message=v;
-        this.storagepush()
+        this.storagepush();记录
         this.none()
+        ev.preventDefault();
       },
-      onsearch(){
+      onsearch(){ //打开框内搜索
         window.open(this.search+this.message);
-        this.storagepush()
-        this.none();
+        this.storagepush();
+        this.none();//搜索修正
       },
       none(){
-        this.message=="";
+        this.message="";
         this.dates=[];
         this.s_show=false;
         this.lindex=-1;
         this.list_show=false;
-        this.sindex=-1;
+        for(let i=0;i<this.localstoragelist.length;i++){ //渲染修正
+          this.$refs.storagechlist[i].style.background='';
+        }
+      },
+      srclistdowm(arrs,obj){
+        this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;//判断渲染位置
+        obj[this.lindex].style.background='rgba(0,0,0,.05)';
+        obj[this.lindex-1].style.background='';
+        this.message=obj[this.lindex].firstChild.innerText;
+      },
+      srclistup(arrs,obj){
+        this.lindex==0?this.lindex=0:this.lindex--;
+        obj[this.lindex].style.background='rgba(0,0,0,.05)';
+        obj[this.lindex+1].style.background='';
+        this.message=obj[this.lindex].firstChild.innerText;
       },
       getdata(ev){
         let arr=Object.values(this.dates);
@@ -130,36 +142,16 @@
         // console.log(sarr.length)
         if(ev.keyCode==40){ //dowm
           if(this.s_show){
-            for(let i=0;i<arr.length;i++){
-              seli[i].style.background='white';
-            }
-            this.lindex==arr.length-1?this.lindex=arr.length-1:this.lindex++;//判断渲染位置
-            seli[this.lindex].style.background='rgba(0,0,0,.05)';
-            this.message=seli[this.lindex].firstChild.innerText;
+            this.srclistdowm(arr,seli);
           }else{
-            for(let i=0;i<sarr.length;i++){
-              stoli[i].style.background='white';
-            }
-            this.sindex==sarr.length-1?this.sindex=sarr.length-1:this.sindex++;//判断渲染位置
-            stoli[this.sindex].style.background='rgba(0,0,0,.05)';
-            this.message=stoli[this.sindex].firstChild.innerText;
+            this.srclistdowm(sarr,stoli);
           }
           ev.preventDefault();
         }else if(ev.keyCode==38){   //up
           if(this.s_show){
-            for(let i=0;i<arr.length;i++){
-              seli[i].style.background='white';
-            }
-            this.lindex==0?this.lindex=0:this.lindex--;
-            seli[this.lindex].style.background='rgba(0,0,0,.05)';
-            this.message=seli[this.lindex].firstChild.innerText;
+            this.srclistup(arr,seli);
           }else{
-            for(let i=0;i<sarr.length;i++){
-              stoli[i].style.background='white';
-            }
-            this.sindex==0?this.sindex=0:this.sindex--;
-            stoli[this.sindex].style.background='rgba(0,0,0,.05)';
-            this.message=stoli[this.sindex].firstChild.innerText;
+            this.srclistup(sarr,stoli);
           }
           ev.preventDefault();
         }else{
@@ -226,14 +218,14 @@
     background white
     padding 10px 0
     width 100%
-    // display none
     position absolute
-    li
-      line-height 32px
-      cursor pointer
-      color #212121
-      padding 0 15px
-      font-size 14px
-      &:hover
-        background rgba(0,0,0,.05)
+    background white
+  .sear_l
+    line-height 32px
+    cursor pointer
+    color #212121
+    padding 0 15px
+    font-size 14px
+    &:hover
+      background rgba(0,0,0,.05)
 </style>
