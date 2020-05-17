@@ -12,7 +12,7 @@
         <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index" @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
       </ul>
       <ul id="sear_b" class="sear_b" v-show="list_show">
-         <li class="sear_l"  v-for="(item,index) in localstoragelist" ref="searchlist" :key="item.index" @click="butt($event,item)" >
+         <li class="sear_l"  v-for="(item,index) in localstoragelist" ref="storagechlist" :key="item.index" @click="butt($event,item)" >
            <a >{{item}}</a>
            <span class="iconfont icon-ic_close" style="float: right;" @click.stop="del(index)"></span>
          </li>
@@ -33,6 +33,7 @@
         url:'https://s.search.bilibili.com/main/suggest?term=',
         search:'https://search.bilibili.com/all?keyword=',
         lindex:-1,
+        sindex:-1,
         s_show:false,
         list_show:false,
       }
@@ -52,20 +53,20 @@
       document.addEventListener('keydown',e=>{
           if(e.keyCode == 13){
             window.open(this.search+this.message);
-            e.preventDefault();
+
             this.none;
-            this.storagepush()
+            this.storagepush();
+            e.preventDefault();
           }
       })
     },
     watch:{
       localstoragelist:{
         handler(items){
-          if(items.length>0){
-            Storage.save(this.reArr(items));
-          }else if(items.length==0){
+          if(items.length==0){
             this.list_show=false;
           }
+          Storage.save(this.reArr(items));
         },
         deep: true
       },
@@ -73,8 +74,10 @@
         handler(items){
           if(items){
             this.list_show=false;
+            this.none;
           }else{
             this.list_show=true;
+            this.none;
           }
         },
       }
@@ -116,30 +119,50 @@
         this.s_show=false;
         this.lindex=-1;
         this.list_show=false;
+        this.sindex=-1;
       },
       getdata(ev){
         let arr=Object.values(this.dates);
         let seli=this.$refs.searchlist;
 
-
-        console.log(ev.keyCode)
+        let stoli=this.$refs.storagechlist;
+        let sarr=this.localstoragelist;
+        // console.log(sarr.length)
         if(ev.keyCode==40){ //dowm
-          for(let i=0;i<arr.length;i++){
-            seli[i].style.background='white';
+          if(this.s_show){
+            for(let i=0;i<arr.length;i++){
+              seli[i].style.background='white';
+            }
+            this.lindex==arr.length-1?this.lindex=arr.length-1:this.lindex++;//判断渲染位置
+            seli[this.lindex].style.background='rgba(0,0,0,.05)';
+            this.message=seli[this.lindex].firstChild.innerText;
+          }else{
+            for(let i=0;i<sarr.length;i++){
+              stoli[i].style.background='white';
+            }
+            this.sindex==sarr.length-1?this.sindex=sarr.length-1:this.sindex++;//判断渲染位置
+            stoli[this.sindex].style.background='rgba(0,0,0,.05)';
+            this.message=stoli[this.sindex].firstChild.innerText;
           }
-          this.lindex==arr.length-1?this.lindex=arr.length-1:this.lindex++;
-          seli[this.lindex].style.background='rgba(0,0,0,.05)';
-          this.message=seli[this.lindex].firstChild.innerText;
+          ev.preventDefault();
         }else if(ev.keyCode==38){   //up
-          // for(let i=0;i<arr.length;i++){
-          //   seli[i].style.background='white';
-          // }
-          // this.lindex==0?this.lindex=0:this.lindex--;
-          // seli[this.lindex].style.background='rgba(0,0,0,.05)';
-          // this.message=seli[this.lindex].firstChild.innerText;
-          // ev.preventDefault();
+          if(this.s_show){
+            for(let i=0;i<arr.length;i++){
+              seli[i].style.background='white';
+            }
+            this.lindex==0?this.lindex=0:this.lindex--;
+            seli[this.lindex].style.background='rgba(0,0,0,.05)';
+            this.message=seli[this.lindex].firstChild.innerText;
+          }else{
+            for(let i=0;i<sarr.length;i++){
+              stoli[i].style.background='white';
+            }
+            this.sindex==0?this.sindex=0:this.sindex--;
+            stoli[this.sindex].style.background='rgba(0,0,0,.05)';
+            this.message=stoli[this.sindex].firstChild.innerText;
+          }
+          ev.preventDefault();
         }else{
-
           if(this.message==""){
             this.none()
           }else{
