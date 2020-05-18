@@ -3,16 +3,19 @@
     <div class="search_size">
       <form action="" class="nav_search">
         <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"
-          v-model="message" @keyup="getdata($event)" id="search" class="In_search nav_search">
+          v-model="message" @keydown="kdown($event)" @keyup="kup($event)" id="search" class="In_search nav_search">
         <div class="butback">
           <button type="button" class="search_button" @click="onsearch()"></button>
         </div>
       </form>
+      <!-- {{message}} -->
      <ul id="sear_b" class="sear_b" v-show="s_show">
-        <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index" @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
+        <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index"
+        @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
       </ul>
       <ul id="sear_b" class="sear_b" v-show="list_show">
-         <li class="sear_l"  v-for="(item,index) in localstoragelist" ref="storagechlist" :key="item.index" @click="butt($event,item)" >
+         <li class="sear_l"  v-for="(item,index) in (localstoragelist || '').slice(0,10)" ref="storagechlist"
+         :key="item.index" @click="butt($event,item)" >
            <a >{{item}}</a>
            <span class="iconfont icon-ic_close" style="float: right;" @click.stop="del(index)"></span>
          </li>
@@ -52,7 +55,8 @@
       }),
       document.addEventListener('keydown',e=>{
           if(e.keyCode == 13){
-            window.open(this.search+this.message);
+            console.log(this.message)
+
             this.storagepush();
             this.none();
             e.preventDefault();
@@ -85,7 +89,7 @@
       storagepush(){//记录同时防止渲染重复
         let arr = Storage.fetch();
         if(arr.indexOf(this.message)==-1){
-          this.localstoragelist.push(this.message);
+          this.localstoragelist.unshift(this.message);//从前往后插入
         }
       },
       reArr(str){//缓存去重复
@@ -122,25 +126,60 @@
         }
       },
       srclistdowm(arrs,obj){
-        this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;//判断渲染位置
+        // this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;//判断渲染位置
+        // obj[this.lindex].style.background='rgba(0,0,0,.05)';
+        // obj[this.lindex-1].style.background='';//颜色渲染修正
+        // this.message=obj[this.lindex].innerText;
+        // console.log(obj[this.lindex].innerText);
+        this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
         obj[this.lindex-1].style.background='';
-        this.message=obj[this.lindex].firstChild.innerText;
       },
       srclistup(arrs,obj){
         this.lindex==0?this.lindex=0:this.lindex--;
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
         obj[this.lindex+1].style.background='';
-        this.message=obj[this.lindex].firstChild.innerText;
+        this.message=obj[this.lindex].innerText;
+        // console.log(obj[this.lindex].firstChild.innerText);
       },
-      getdata(ev){
+      kdown(ev){
         let arr=Object.values(this.dates);
         let seli=this.$refs.searchlist;
 
         let stoli=this.$refs.storagechlist;
         let sarr=this.localstoragelist;
-        // console.log(sarr.length)
+        if(ev.keyCode==40){
+          this.srclistdowm(sarr,stoli);
+         
+        }else{
+          window.open(this.search+this.message);
+        }
+        console.log(this.message)
+
+        // this.message=stoli[this.lindex].firstChild.innerText;
+        // if(ev.keyCode==40){ //dowm
+        //   console.log(this.message)
+        //   if(this.s_show){
+        //     this.srclistdowm(arr,seli);
+        //   }else{
+        //     this.srclistdowm(sarr,stoli);
+        //   }
+        //   ev.preventDefault();
+        // }
+      },
+      kup(ev){
+        let stoli=this.$refs.storagechlist;
+        if(ev.keyCode==40){
+          this.message=stoli[this.lindex].innerText;
+          console.log(this.message)
+        }else{
+
+        }
+      },
+      getdata(ev){
+
         if(ev.keyCode==40){ //dowm
+          console.log(this.message)
           if(this.s_show){
             this.srclistdowm(arr,seli);
           }else{
@@ -154,7 +193,7 @@
             this.srclistup(sarr,stoli);
           }
           ev.preventDefault();
-        }else{
+        }else{ //any
           if(this.message==""){
             this.none()
           }else{
