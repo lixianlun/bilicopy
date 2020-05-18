@@ -10,11 +10,11 @@
       </form>
       <!-- {{message}} -->
      <ul id="sear_b" class="sear_b" v-show="s_show">
-        <li class="sear_l" v-for="item in dates" ref="searchlist" :key="item.index"
+        <li class="sear_l slist" v-for="item in dates" :key="item.index"
         @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
       </ul>
       <ul id="sear_b" class="sear_b" v-show="list_show">
-         <li class="sear_l"  v-for="(item,index) in (localstoragelist || '').slice(0,10)" ref="storagechlist"
+         <li class="sear_l llist"  v-for="(item,index) in (localstoragelist || '').slice(0,10)"
          :key="item.index" @click="butt($event,item)" >
            <a >{{item}}</a>
            <span class="iconfont icon-ic_close" style="float: right;" @click.stop="del(index)"></span>
@@ -38,29 +38,26 @@
         lindex:-1,
         s_show:false,
         list_show:false,
+        searchli:document.getElementsByClassName('slist'),
+        locallist:document.getElementsByClassName('llist')
       }
     },
     mounted() {
       document.addEventListener('click',e=>{
         if(!this.$refs.input.contains(e.target)){
           this.none();
+          for(let i=0;i<this.localstoragelist.length;i++){ //渲染修正
+            this.$refs.storagechlist[i].style.background='';
+          }
         }else{
-          this.lindex=-1;
-          if(this.localstoragelist.length>0){
-            if(!this.s_show){
+          if(this.message.length>0){
+            this.axiosget()
+          }else{
+            if(this.localstoragelist.length>0){
               this.list_show=true;
             }
           }
         }
-      }),
-      document.addEventListener('keydown',e=>{
-          if(e.keyCode == 13){
-            console.log(this.message)
-
-            this.storagepush();
-            this.none();
-            e.preventDefault();
-          }
       })
     },
     watch:{
@@ -68,21 +65,10 @@
         handler(items){
           if(items.length==0){
             this.list_show=false;
-          }else{
-            this.list_show=true;
           }
           Storage.save(this.reArr(items));
         },
         deep: true
-      },
-      s_show:{
-        handler(items){
-          if(items){
-            this.list_show=false;
-          }else{
-            this.list_show=true;
-          }
-        },
       }
     },
     methods:{
@@ -116,7 +102,6 @@
         this.none();//搜索修正
       },
       none(){
-        this.message="";
         this.dates=[];
         this.s_show=false;
         this.lindex=-1;
@@ -126,85 +111,76 @@
         }
       },
       srclistdowm(arrs,obj){
-        // this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;//判断渲染位置
-        // obj[this.lindex].style.background='rgba(0,0,0,.05)';
-        // obj[this.lindex-1].style.background='';//颜色渲染修正
-        // this.message=obj[this.lindex].innerText;
-        // console.log(obj[this.lindex].innerText);
+        // this.lindex++;
         this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;
+        for(let i=0;i<this.localstoragelist.length;i++){
+          obj[i].style.background='';
+        }
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
-        obj[this.lindex-1].style.background='';
+
+        // obj[this.lindex].style.background='rgba(0,0,0,.05)';
+
+
       },
       srclistup(arrs,obj){
         this.lindex==0?this.lindex=0:this.lindex--;
+        for(let i=0;i<this.localstoragelist.length;i++){
+          obj[i].style.background='';
+        }
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
-        obj[this.lindex+1].style.background='';
-        this.message=obj[this.lindex].innerText;
-        // console.log(obj[this.lindex].firstChild.innerText);
+        // obj[this.lindex+1].style.background='';
       },
       kdown(ev){
-        let arr=Object.values(this.dates);
-        let seli=this.$refs.searchlist;
-
-        let stoli=this.$refs.storagechlist;
-        let sarr=this.localstoragelist;
+        let slist=Object.values(this.dates);
+        let llist=this.localstoragelist;
         if(ev.keyCode==40){
-          this.srclistdowm(sarr,stoli);
-         
-        }else{
+          if(this.s_show){
+              this.srclistdowm(slist,this.searchli);
+            }else{
+              this.srclistdowm(llist,this.locallist);
+            }
+        }else if(ev.keyCode==38){
+            if(this.s_show){
+                this.srclistup(slist,this.searchli);
+              }else{
+                this.srclistup(llist,this.locallist);
+              }
+        }else if(ev.keyCode==13){
+          this.storagepush();
           window.open(this.search+this.message);
         }
-        console.log(this.message)
-
-        // this.message=stoli[this.lindex].firstChild.innerText;
-        // if(ev.keyCode==40){ //dowm
-        //   console.log(this.message)
-        //   if(this.s_show){
-        //     this.srclistdowm(arr,seli);
-        //   }else{
-        //     this.srclistdowm(sarr,stoli);
-        //   }
-        //   ev.preventDefault();
-        // }
       },
       kup(ev){
-        let stoli=this.$refs.storagechlist;
         if(ev.keyCode==40){
-          this.message=stoli[this.lindex].innerText;
-          console.log(this.message)
+          // console.log(this.localstoragelist[this.lindex])
+          if(this.s_show){
+            this.message=this.dates[this.lindex];
+          }else{
+            this.message=this.localstoragelist[this.lindex];
+          }
+        }else if(ev.keyCode==38){
+          if(this.s_show){
+            this.message=this.dates[this.lindex];
+          }else{
+            this.message=this.localstoragelist[this.lindex];
+          }
         }else{
-
-        }
-      },
-      getdata(ev){
-
-        if(ev.keyCode==40){ //dowm
-          console.log(this.message)
-          if(this.s_show){
-            this.srclistdowm(arr,seli);
-          }else{
-            this.srclistdowm(sarr,stoli);
-          }
-          ev.preventDefault();
-        }else if(ev.keyCode==38){   //up
-          if(this.s_show){
-            this.srclistup(arr,seli);
-          }else{
-            this.srclistup(sarr,stoli);
-          }
-          ev.preventDefault();
-        }else{ //any
-          if(this.message==""){
+          if(this.message.length==0){
             this.none()
           }else{
-            axios.get(this.url+this.message).then(response=>{
-              this.s_show=true
-              this.dates=response.data;
-            },response=>{
-              console.log("error")
-            })
+            this.axiosget()
           }
         }
+      },
+      axiosget(){
+        axios.get(this.url+this.message).then(response=>{
+          this.dates=response.data;
+          if(Object.values(this.dates).length>0){
+            this.s_show=true;
+          }
+        },response=>{
+          console.log("error")
+        })
       }
     }
   }
