@@ -10,7 +10,7 @@
       </form>
      <ul id="sear_b" class="sear_b" v-show="s_show">
         <li class="sear_l slist" v-for="item in dates" :key="item.index"
-        @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
+        @click="butt($event,item.value)" ><a>{{item.value}}</a></li>
       </ul>
       <ul id="sear_b" class="sear_b" v-show="list_show">
          <li class="sear_l llist"  v-for="(item,index) in (localstoragelist || '').slice(0,10)"
@@ -36,14 +36,16 @@
         search:'https://search.bilibili.com/all?keyword=',
         lindex:-1,
         s_show:false,
-        list_show:false
+        list_show:false,
+        slist:document.getElementsByClassName('slist'),
+        llist:document.getElementsByClassName('llist')
       }
     },
     mounted() {
       document.addEventListener('click',e=>{
         if(!this.$refs.input.contains(e.target)){
           this.none();
-          for(let i=0;i<this.localstoragelist.length;i++){ //渲染修正
+          for(let i=0;i<this.localstoragelist.length;i++){ //渲染还原
             this.$refs.storagechlist[i].style.background='';
           }
         }else{
@@ -71,6 +73,7 @@
         handler(items){
           if(items){
             this.list_show=false;
+            this.lindex=-1;
           }
         }
       }
@@ -103,15 +106,46 @@
       onsearch(){ //打开框内搜索
         window.open(this.search+this.message);
         this.storagepush();
-        this.none();//搜索修正
+        this.none();
       },
-      none(){
+      none(){//还原
         this.dates=[];
         this.s_show=false;
         this.lindex=-1;
         this.list_show=false;
-        for(let i=0;i<this.localstoragelist.length;i++){ //渲染修正
+        for(let i=0;i<this.localstoragelist.length;i++){
           this.$refs.storagechlist[i].style.background='';
+        }
+      },
+      kdown(ev){
+        let slist=Object.values(this.dates);
+        let llist=this.localstoragelist;
+        if(ev.keyCode==40){
+          if(this.s_show){
+              this.srclistdowm(slist,this.slist);
+            }else{
+              this.srclistdowm(llist,this.llist);
+            }
+        }else if(ev.keyCode==38){
+            if(this.s_show){
+                this.srclistup(slist,this.slist);
+              }else{
+                this.srclistup(llist,this.llist);
+              }
+        }else if(ev.keyCode==13){
+          this.storagepush();
+          window.open(this.search+this.message);
+        }
+      },
+      kup(ev){
+        let slist=Object.values(this.dates);
+        let llist=this.localstoragelist;
+        if(ev.keyCode==40){
+          this.ups(slist,llist);
+        }else if(ev.keyCode==38){
+          this.ups(slist,llist);
+        }else{
+          this.axiosget()
         }
       },
       srclistdowm(arrs,obj){
@@ -128,40 +162,7 @@
         }
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
       },
-      kdown(ev){
-        let slist=Object.values(this.dates);
-        let llist=this.localstoragelist;
-        let searchli=document.getElementsByClassName('slist');
-        let locallist=document.getElementsByClassName('llist');
-        if(ev.keyCode==40){
-          if(this.s_show){
-              this.srclistdowm(slist,searchli);
-            }else{
-              this.srclistdowm(llist,locallist);
-            }
-        }else if(ev.keyCode==38){
-            if(this.s_show){
-                this.srclistup(slist,searchli);
-              }else{
-                this.srclistup(llist,locallist);
-              }
-        }else if(ev.keyCode==13){
-          this.storagepush();
-          window.open(this.search+this.message);
-        }
-      },
-      kup(ev){
-        let slist=Object.values(this.dates);
-        let llist=this.localstoragelist;
-        if(ev.keyCode==40){
-          this.up(slist,llist);
-        }else if(ev.keyCode==38){
-          this.up(slist,llist);
-        }else{
-          this.axiosget()
-        }
-      },
-      up(obj,obs){
+      ups(obj,obs){
         if(this.s_show){
           this.message=obj[this.lindex].value;
         }else{
