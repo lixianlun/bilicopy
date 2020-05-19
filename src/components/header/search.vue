@@ -8,7 +8,6 @@
           <button type="button" class="search_button" @click="onsearch()"></button>
         </div>
       </form>
-      <!-- {{message}} -->
      <ul id="sear_b" class="sear_b" v-show="s_show">
         <li class="sear_l slist" v-for="item in dates" :key="item.index"
         @click="butt($event,item.value)" ><a href="">{{item.value}}</a></li>
@@ -16,7 +15,7 @@
       <ul id="sear_b" class="sear_b" v-show="list_show">
          <li class="sear_l llist"  v-for="(item,index) in (localstoragelist || '').slice(0,10)"
          :key="item.index" @click="butt($event,item)" >
-           <a >{{item}}</a>
+           <a>{{item}}</a>
            <span class="iconfont icon-ic_close" style="float: right;" @click.stop="del(index)"></span>
          </li>
        </ul>
@@ -37,9 +36,7 @@
         search:'https://search.bilibili.com/all?keyword=',
         lindex:-1,
         s_show:false,
-        list_show:false,
-        searchli:document.getElementsByClassName('slist'),
-        locallist:document.getElementsByClassName('llist')
+        list_show:false
       }
     },
     mounted() {
@@ -69,6 +66,13 @@
           Storage.save(this.reArr(items));
         },
         deep: true
+      },
+      s_show:{
+        handler(items){
+          if(items){
+            this.list_show=false;
+          }
+        }
       }
     },
     methods:{
@@ -111,39 +115,35 @@
         }
       },
       srclistdowm(arrs,obj){
-        // this.lindex++;
         this.lindex==arrs.length-1?this.lindex=arrs.length-1:this.lindex++;
-        for(let i=0;i<this.localstoragelist.length;i++){
+        for(let i=0;i<arrs.length;i++){
           obj[i].style.background='';
         }
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
-
-        // obj[this.lindex].style.background='rgba(0,0,0,.05)';
-
-
       },
       srclistup(arrs,obj){
         this.lindex==0?this.lindex=0:this.lindex--;
-        for(let i=0;i<this.localstoragelist.length;i++){
+        for(let i=0;i<arrs.length;i++){
           obj[i].style.background='';
         }
         obj[this.lindex].style.background='rgba(0,0,0,.05)';
-        // obj[this.lindex+1].style.background='';
       },
       kdown(ev){
         let slist=Object.values(this.dates);
         let llist=this.localstoragelist;
+        let searchli=document.getElementsByClassName('slist');
+        let locallist=document.getElementsByClassName('llist');
         if(ev.keyCode==40){
           if(this.s_show){
-              this.srclistdowm(slist,this.searchli);
+              this.srclistdowm(slist,searchli);
             }else{
-              this.srclistdowm(llist,this.locallist);
+              this.srclistdowm(llist,locallist);
             }
         }else if(ev.keyCode==38){
             if(this.s_show){
-                this.srclistup(slist,this.searchli);
+                this.srclistup(slist,searchli);
               }else{
-                this.srclistup(llist,this.locallist);
+                this.srclistup(llist,locallist);
               }
         }else if(ev.keyCode==13){
           this.storagepush();
@@ -151,25 +151,21 @@
         }
       },
       kup(ev){
+        let slist=Object.values(this.dates);
+        let llist=this.localstoragelist;
         if(ev.keyCode==40){
-          // console.log(this.localstoragelist[this.lindex])
-          if(this.s_show){
-            this.message=this.dates[this.lindex];
-          }else{
-            this.message=this.localstoragelist[this.lindex];
-          }
+          this.up(slist,llist);
         }else if(ev.keyCode==38){
-          if(this.s_show){
-            this.message=this.dates[this.lindex];
-          }else{
-            this.message=this.localstoragelist[this.lindex];
-          }
+          this.up(slist,llist);
         }else{
-          if(this.message.length==0){
-            this.none()
-          }else{
-            this.axiosget()
-          }
+          this.axiosget()
+        }
+      },
+      up(obj,obs){
+        if(this.s_show){
+          this.message=obj[this.lindex].value;
+        }else{
+          this.message=obs[this.lindex];
         }
       },
       axiosget(){
@@ -177,6 +173,8 @@
           this.dates=response.data;
           if(Object.values(this.dates).length>0){
             this.s_show=true;
+          }else{
+            this.s_show=false;
           }
         },response=>{
           console.log("error")
