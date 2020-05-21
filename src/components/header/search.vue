@@ -99,13 +99,18 @@
       },
       butt(ev,v){//打开列表的搜索
         window.open(this.search+v)
-        this.storagepush();记录
-        this.none()
-        ev.preventDefault();
+        this.none();
+        if(this.message.length>0){
+          this.storagepush();
+        }
+
       },
       onsearch(){ //打开框内搜索
-        window.open(this.search+this.message);
-        this.storagepush();
+        console.log(this.message.length)
+        if(this.message.length>0){
+          this.storagepush();
+          window.open(this.search+this.message);
+        }
         this.none();
       },
       none(){//还原
@@ -128,13 +133,10 @@
             }
         }else if(ev.keyCode==38){
             if(this.s_show){
-                this.srclistup(slist,this.slist);
-              }else{
-                this.srclistup(llist,this.llist);
-              }
-        }else if(ev.keyCode==13){
-          this.storagepush();
-          window.open(this.search+this.message);
+              this.srclistup(slist,this.slist);
+            }else{
+              this.srclistup(llist,this.llist);
+            }
         }
       },
       kup(ev){
@@ -144,6 +146,10 @@
           this.ups(slist,llist);
         }else if(ev.keyCode==38){
           this.ups(slist,llist);
+        }else if(ev.keyCode==13){
+          this.storagepush();
+          window.open(this.search+this.message);
+          console.log(this.message)
         }else{
           this.axiosget()
         }
