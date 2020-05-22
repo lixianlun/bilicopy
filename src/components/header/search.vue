@@ -3,9 +3,9 @@
     <div class="search_size">
       <form action="" class="nav_search">
         <input type="text" placeholder="致敬奋战在肺炎疫情一线的医护人员!" ref="input" autocomplete="off"
-          v-model="message" @keydown="kdown($event)" @keyup="kup($event)" id="search" class="In_search nav_search">
+          v-model="message" @keydown="kdown($event)" @keyup.stop="kup($event)" id="search" class="In_search nav_search">
         <div class="butback">
-          <button type="button" class="search_button" @click="onsearch()"></button>
+          <button type="button" class="search_button" @click="butt($event)"></button>
         </div>
       </form>
      <ul id="sear_b" class="sear_b" v-show="s_show">
@@ -42,12 +42,9 @@
       }
     },
     mounted() {
-      document.addEventListener('click',e=>{
-        if(!this.$refs.input.contains(e.target)){
+      document.addEventListener('click',ev=>{
+        if(!this.$refs.input.contains(ev.target)){
           this.none();
-          for(let i=0;i<this.localstoragelist.length;i++){ //渲染还原
-            this.$refs.storagechlist[i].style.background='';
-          }
         }else{
           if(this.message.length>0){
             this.axiosget()
@@ -56,6 +53,15 @@
               this.list_show=true;
             }
           }
+        }
+      }),
+      document.addEventListener('keydown',ev=>{
+        if(ev.keyCode==13){
+          if(this.message.length>0){
+            this.storagepush();
+            window.open(this.search+this.message);
+          }
+          ev.preventDefault();
         }
       })
     },
@@ -97,30 +103,30 @@
       del(index){//缓存删除
         this.localstoragelist.splice(index,1);
       },
-      butt(ev,v){//打开列表的搜索
-        window.open(this.search+v)
-        this.none();
-        if(this.message.length>0){
-          this.storagepush();
-        }
+      butt(ev,mes){
 
-      },
-      onsearch(){ //打开框内搜索
-        console.log(this.message.length)
-        if(this.message.length>0){
-          this.storagepush();
-          window.open(this.search+this.message);
+        // this.none();
+        console.log(mes)
+        if(mes){
+          window.open(this.search+mes);
+        }else{
+          if(this.message.length>0){
+            this.storagepush();
+            window.open(this.search+this.message);
+          }
         }
-        this.none();
       },
       none(){//还原
         this.dates=[];
         this.s_show=false;
         this.lindex=-1;
         this.list_show=false;
-        for(let i=0;i<this.localstoragelist.length;i++){
-          this.$refs.storagechlist[i].style.background='';
-        }
+        for(let i=0;i<this.slist.length;i++){
+          this.slist[i].style.background='';
+        };
+        for(let i=0;i<this.llist.length;i++){
+          this.llist[i].style.background='';
+        };
       },
       kdown(ev){
         let slist=Object.values(this.dates);
@@ -146,10 +152,6 @@
           this.ups(slist,llist);
         }else if(ev.keyCode==38){
           this.ups(slist,llist);
-        }else if(ev.keyCode==13){
-          this.storagepush();
-          window.open(this.search+this.message);
-          console.log(this.message)
         }else{
           this.axiosget()
         }
